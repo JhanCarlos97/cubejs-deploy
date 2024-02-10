@@ -1,0 +1,36 @@
+{
+    "filters": [
+      {
+        "member": "bus_another_provider_MismatchIntents.communityId",
+        "operator": "equals",
+        "values": [
+          "d67cd7e9-3cc3-4474-a7f8-97d348f2a3d5"
+        ]
+      },
+      {
+        "member": "bus_another_provider_MismatchIntents.turnTimeDate",
+        "operator": "inDateRange",
+        "values": [
+            "2021-07-01",
+            "2022-07-06"
+        ]
+      }
+    ],
+    "dimensions": [
+      "bus_another_provider_MismatchIntents.turnTimeDate",
+      "bus_another_provider_MismatchIntents.conversationsId",
+      "bus_another_provider_MismatchIntents.hourMinute",
+      "bus_another_provider_MismatchIntents.userRequest",
+      "bus_another_provider_MismatchIntents.historicResponseText",
+      "bus_another_provider_MismatchIntents.intentName",
+      "bus_another_provider_MismatchIntents.communityId",
+      "bus_another_provider_MismatchIntents.flag",
+      "bus_another_provider_MismatchIntents.turnTime"
+    ],
+    "ungrouped": true,
+    "order": {
+        "bus_another_provider_MismatchIntents.conversationsId": "asc",
+        "bus_another_provider_MismatchIntents.turnTime": "asc",
+        "bus_another_provider_MismatchIntents.userRequest": "asc"
+      }
+  }

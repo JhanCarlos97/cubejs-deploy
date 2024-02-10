@@ -1,0 +1,42 @@
+{
+    "dimensions": [
+      "bus_FormSummissionsByTimeOfDay_vendor_name_Metrics.order",
+      "bus_FormSummissionsByTimeOfDay_vendor_name_Metrics.category"
+    ],
+    "measures": [
+      "bus_FormSummissionsByTimeOfDay_vendor_name_Metrics.quantity",
+      "bus_FormSummissionsByTimeOfDay_vendor_name_Metrics.totalPercentageQuantity"
+    ],
+    "order": [
+      [
+        "bus_FormSummissionsByTimeOfDay_vendor_name_Metrics.order",
+        "asc"
+      ],
+      [
+        "bus_FormSummissionsByTimeOfDay_vendor_name_Metrics.category",
+        "asc"
+      ]
+    ],
+    "filters": [
+      {
+        "member": "bus_FormSummissionsByTimeOfDay_vendor_name_Metrics.dt",
+        "operator": "inDateRange",
+        "values": [
+          "2021-08-15",
+          "2022-08-16"
+        ]
+      },
+      {
+        "member": "bus_FormSummissionsByTimeOfDay_vendor_name_Metrics.communityId",
+        "operator": "equals",
+        "values": [
+          "d67cd7e9-3cc3-4474-a7f8-97d348f2a3d5",
+          "5a42560a-bc48-4b29-995a-36940a518b5b",
+          "4756b06f-fefb-4348-99b7-786e010b11f8",
+          "d0a3d211-0522-4ccd-bef1-4aa1d1e21169",
+          "174ee2ec-4f2d-4f04-bbea-5fc06ca8a285",
+          "55672ef1-a7b2-4f07-ad1a-77b80a0a85de"
+        ]
+      }
+    ]
+  }

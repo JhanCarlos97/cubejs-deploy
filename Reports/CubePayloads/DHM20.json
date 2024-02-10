@@ -1,0 +1,41 @@
+{
+    "measures": [
+      "bus_another_provider_Conversations.sumTourScheduledForm",
+      "bus_another_provider_Conversations.conversionTourScheduledForm",
+      "bus_another_provider_Conversations.count"
+    ],
+    "dimensions": [
+      "bus_another_provider_Conversations.language"
+    ],
+    "segments": [
+      "bus_another_provider_Conversations.dhm01Segment"
+    ],
+    "filters": [
+      {
+        "member": "bus_another_provider_Conversations.communityId",
+        "operator": "equals",
+        "values": [
+          "8339e7c2-797d-4b46-843f-be8b34bee8c6",
+"544eb596-c85e-4ee0-a37d-49d7552b6780",
+"e8848f98-f3df-4d3e-88ce-ecd10f6fccd6",
+"530f6b82-4b5d-4d61-bbc8-8dbafc47a17f",
+"997187d9-5e33-4032-966e-aacb5bfd15a8",
+"256907f4-de63-4bcc-b5f3-586b7f8feced"
+        ]
+      },
+      {
+        "member": "bus_another_provider_Conversations.turnDay",
+        "operator": "inDateRange",
+        "values": [
+          "2021-07-01",
+          "2022-08-16"
+        ]
+      }
+    ],
+    "order": [
+      [
+        "bus_another_provider_Conversations.language",
+        "asc"
+      ]
+    ]
+  }

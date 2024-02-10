@@ -1,0 +1,13 @@
+{
+    "dimensions": [
+      "bus_another_provider_CustomerCustomResponse.flagged",
+      "bus_another_provider_CustomerCustomResponse.frozen",
+      "bus_another_provider_CustomerCustomResponse.reviewed",
+      "bus_another_provider_CustomerCustomResponse.active"
+    ],
+    "order": [],
+    "filters": [],
+    "segments": [
+      "bus_another_provider_CustomerCustomResponse.defaultSegment"
+      ]
+  }

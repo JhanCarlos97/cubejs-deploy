@@ -1,0 +1,59 @@
+{
+  "dimensions": [
+    "bus_pms_generalLedger.accountName",
+    "bus_pms_generalLedger.accountNumber",
+    "bus_pms_generalLedger.transactions",
+    "bus_pms_generalLedger.starting",
+    "bus_pms_generalLedger.change",
+    "bus_pms_generalLedger.balance",
+    "bus_pms_generalLedger.balanceToggle",
+    "bus_pms_generalLedger.debits",
+    "bus_pms_generalLedger.credits",
+    "bus_pms_generalLedger.transactionDate",
+    "bus_pms_generalLedger.description",
+    "bus_pms_generalLedger.debit",
+    "bus_pms_generalLedger.credit"
+  ],
+  "measures": [],
+  "order": {
+    "bus_pms_generalLedger.accountNumber": "asc",
+    "bus_pms_generalLedger.accountName": "asc",
+    "bus_pms_generalLedger.transactionDate": "asc"
+  },
+  "filters": [
+    {
+      "member": "bus_pms_generalLedger.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "c71a9d7b-a7db-4b54-b3f5-33b98de31b01"
+      ]
+    },
+    {
+      "member": "bus_pms_generalLedger.accountNumberGTE",
+      "operator": "gte",
+      "values": [
+        "1000-0000"
+      ]
+    },
+    {
+      "member": "bus_pms_generalLedger.accountNumberLTE",
+      "operator": "lte",
+      "values": [
+        "2000-0000"
+      ]
+    },
+    {
+        "member": "bus_pms_generalLedger.transactionDate",
+        "operator": "inDateRange",
+        "values": [
+          "2023-01-10",
+          "2023-02-01"
+        ]
+      },
+          {
+        "member": "bus_pms_generalLedger.balanceToggle",
+        "operator": "equals",
+        "values": ["false"]
+      }
+  ]
+  }

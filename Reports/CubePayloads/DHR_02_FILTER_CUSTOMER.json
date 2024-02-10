@@ -1,0 +1,14 @@
+{
+    "dimensions": [
+        "bus_another_provider_CustomerCustomResponse.customerName"
+    ],
+    "order": [
+        [
+            "bus_another_provider_CustomerCustomResponse.customerName",
+            "asc"
+        ]
+    ],
+    "segments": [
+        "bus_another_provider_CustomerCustomResponse.customerSegment"
+    ]
+}

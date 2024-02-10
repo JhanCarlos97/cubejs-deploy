@@ -1,0 +1,41 @@
+{
+  "dimensions": [
+"bus_pms_depositRegister.paymentMonth",
+"bus_pms_depositRegister.batchId",
+"bus_pms_depositRegister.bankName",
+"bus_pms_depositRegister.unitName",
+"bus_pms_depositRegister.fullname",
+"bus_pms_depositRegister.reference"
+
+  ],
+
+  "measures": [
+       "bus_pms_depositRegister.totalAmount",
+        "bus_pms_depositRegister.accrualAmount"
+  ],
+  "order": {
+    "bus_pms_depositRegister.paymentMonth": "asc",
+    "bus_pms_depositRegister.batchId": "asc",
+    "bus_pms_depositRegister.unitName": "asc"
+  },
+   "filters": [
+{
+      "member": "bus_pms_depositRegister.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "17c41bb2-886b-4544-9f58-f434f8f58672"
+      ]
+    },
+    {
+        "member": "bus_pms_depositRegister.paymentDate",
+        "operator": "inDateRange",
+        "values": [
+          "2023-01-10",
+          "2023-03-01"
+        ]
+      }
+  ],
+   "segments": [
+      "bus_pms_depositRegister.voidCreditValid"
+    ]
+}

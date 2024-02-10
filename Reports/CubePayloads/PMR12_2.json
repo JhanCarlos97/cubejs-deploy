@@ -1,0 +1,19 @@
+{
+  "dimensions": [
+    "bus_pms_checkRegister.createdDate",
+    "bus_pms_checkRegister.community",
+    "bus_pms_checkRegister.number",
+    "bus_pms_checkRegister.amount",
+    "bus_pms_checkRegister.status",
+    "bus_pms_checkRegister.vendor"
+  ],
+     "filters": [
+    {
+      "member": "bus_pms_checkRegister.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "17c41bb2-886b-4544-9f58-f434f8f58672"
+      ]
+    }
+     ]
+}

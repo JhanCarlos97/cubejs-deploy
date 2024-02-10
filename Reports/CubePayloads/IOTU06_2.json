@@ -1,0 +1,31 @@
+{
+	"measures": [
+		"bus_iot_thermostatAdjustmentsReport.adjustments"
+	],
+	"dimensions": [
+		"bus_iot_thermostatAdjustmentsReport.timeOfDay2",
+		"bus_iot_thermostatAdjustmentsReport.timeOfDay2Sorting"
+	],
+	"filters": [
+		{
+			"member": "bus_iot_thermostatAdjustmentsReport.communityId",
+			"operator": "equals",
+			"values": [
+				"2d9a8c6e-e19f-493c-8b4a-d0012a8535e7"
+			]
+		}
+	],
+	"timezone": "UTC",
+	"order": {
+		"bus_iot_thermostatAdjustmentsReport.timeOfDay2Sorting": "asc"
+	},
+	"timeDimensions": [
+		{
+			"dimension": "bus_iot_thermostatAdjustmentsReport.updatedAt",
+			"dateRange": [
+				"2023-03-01",
+				"2023-03-23"
+			]
+		}
+	]
+}

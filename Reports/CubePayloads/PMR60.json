@@ -1,0 +1,21 @@
+{
+  "dimensions": [    
+    "bus_pms_residentList.unitPMR60",           
+    "bus_pms_residentList.residentType", 
+    "bus_pms_residentList.resident",        
+    "bus_pms_residentList.email", 
+    "bus_pms_residentList.phone", 
+    "bus_pms_residentList.workPhone",
+    "bus_pms_residentList.contactPreference"
+  ],
+  "filters": [
+    {
+      "member": "bus_pms_residentList.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "f05ca239-96f3-4d98-8a85-081c749a1c7b"
+      ]
+    }      
+  ]
+}
+

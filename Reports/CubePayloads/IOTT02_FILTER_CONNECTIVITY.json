@@ -1,0 +1,17 @@
+{
+    "dimensions": [
+        "bus_iot_deviceStatusReport.deviceCommunicationStatus"
+    ],
+    "order": {
+        "bus_iot_deviceStatusReport.deviceCommunicationStatus": "asc"
+    },
+    "filters": [
+        {
+            "member": "bus_iot_deviceStatusReport.communityId",
+            "operator": "equals",
+            "values": [
+                "2d9a8c6e-e19f-493c-8b4a-d0012a8535e7"
+            ]
+        }
+    ]
+}

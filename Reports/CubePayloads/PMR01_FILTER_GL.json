@@ -1,0 +1,21 @@
+{
+  "measures": [
+  ],
+  "dimensions": [
+    "bus_pmsaccounting_AccrualIncome.glNumber",
+    "bus_pmsaccounting_AccrualIncome.gl"
+  ],
+   "filters": [
+    {
+      "member": "bus_pmsaccounting_AccrualIncome.gl",
+      "operator": "notEquals",
+      "values": [null]
+    }
+  ],
+    "order": [
+      [
+        "bus_pmsaccounting_AccrualIncome.gl",
+        "asc"
+      ]
+    ]
+}

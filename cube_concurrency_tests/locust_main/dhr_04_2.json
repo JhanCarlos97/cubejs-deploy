@@ -1,0 +1,18 @@
+{
+  "dimensions": [
+    "bus_TranslateResponseGlobal_vendor_name.mainTopic",
+    "bus_TranslateResponseGlobal_vendor_name.conversationDetail",
+    "bus_TranslateResponseGlobal_vendor_name.nextLevelDetail",
+    "bus_TranslateResponseGlobal_vendor_name.translateStatus",
+    "bus_TranslateResponseGlobal_vendor_name.responseText",
+    "bus_TranslateResponseGlobal_vendor_name.spanishResponseText"
+  ],
+  "order": {
+    "bus_TranslateResponseGlobal_vendor_name.mainTopic": "asc",
+    "bus_TranslateResponseGlobal_vendor_name.conversationDetail": "asc",
+    "bus_TranslateResponseGlobal_vendor_name.nextLevelDetail": "asc",
+    "bus_TranslateResponseGlobal_vendor_name.status": "asc",
+    "bus_TranslateResponseGlobal_vendor_name.responseText": "asc",
+    "bus_TranslateResponseGlobal_vendor_name.spanishResponseText": "asc"
+  }
+}

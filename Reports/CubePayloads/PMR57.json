@@ -1,0 +1,45 @@
+{
+  "dimensions": [
+    "bus_pms_residentList.moveInDate",
+    "bus_pms_residentList.householdMoveOutDate",
+    "bus_pms_residentList.resident",
+    "bus_pms_residentList.unit",
+    "bus_pms_residentList.phone",
+   "bus_pms_residentList.planType",
+   "bus_pms_residentList.carrierName",
+   "bus_pms_residentList.policyNumber",
+   "bus_pms_residentList.policyStatus",
+   "bus_pms_residentList.policyStartDate",
+   "bus_pms_residentList.policyEndDate"
+  ],
+  "filters": [
+    {
+        "and": [
+            {"member": "bus_pms_residentList.businessUnitId",
+            "operator": "equals",
+            "values": [
+                "f05ca239-96f3-4d98-8a85-081c749a1c7b"
+            ]
+            },
+            {
+            "member": "bus_pms_residentList.moveInDate",
+            "operator": "lte",
+            "values": ["2023-02-21"]
+            },
+            {
+                    "or": [
+                        {
+                            "member": "bus_pms_residentList.householdMoveOutDate",
+                            "operator": "gte",
+                            "values": ["2023-02-21"]
+                        },
+                        {
+                            "member": "bus_pms_residentList.householdMoveOutDate",
+                            "operator": "equals",
+                            "values": [null]
+                        }
+                    ]
+                }
+            ]
+    }]
+}

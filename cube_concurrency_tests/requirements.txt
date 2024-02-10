@@ -1,0 +1,3 @@
+Faker==15.3.4
+locust
+pandas==1.3.5

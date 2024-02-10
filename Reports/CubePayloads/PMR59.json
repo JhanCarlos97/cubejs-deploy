@@ -1,0 +1,33 @@
+{
+  "dimensions": [
+     "bus_pms_leaseExpiration.unitName",
+     "bus_pms_leaseExpiration.resident",
+     "bus_pms_leaseExpiration.unitType",
+     "bus_pms_leaseExpiration.bedBath",
+     "bus_pms_leaseExpiration.sqFeet",
+     "bus_pms_leaseExpiration.leaseRent",
+     "bus_pms_leaseExpiration.MarketRent",
+     "bus_pms_leaseExpiration.difference",
+     "bus_pms_leaseExpiration.leaseExpirationDate",
+     "bus_pms_leaseExpiration.residentPhoneNumber",
+     "bus_pms_leaseExpiration.expDays",
+     "bus_pms_leaseExpiration.unitCount"
+       ],
+  "filters": [
+    {
+      "member": "bus_pms_leaseExpiration.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "17c41bb2-886b-4544-9f58-f434f8f58672"
+      ]
+    }      ,
+    {
+        "member": "bus_pms_leaseExpiration.leaseExpirationDate",
+        "operator": "inDateRange",
+        "values": [
+          "2020-01-01",
+          "2023-12-30"
+        ]
+      }
+  ]
+}

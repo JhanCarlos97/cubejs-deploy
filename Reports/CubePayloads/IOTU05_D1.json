@@ -1,0 +1,28 @@
+{
+    "measures": [
+        "bus_iot_temperatureDeltaReport.medDelta"
+    ],
+    "filters": [
+        {
+            "member": "bus_iot_temperatureDeltaReport.communityId",
+            "operator": "equals",
+            "values": [
+                "2d9a8c6e-e19f-493c-8b4a-d0012a8535e7"
+            ]
+        }
+    ],
+    "timezone": "UTC",
+    "order": {
+        "bus_iot_temperatureDeltaReport.updatedAt": "asc"
+    },
+    "timeDimensions": [
+        {
+            "dimension": "bus_iot_temperatureDeltaReport.updatedAt",
+            "granularity": "day",
+            "dateRange": [
+                "2023-03-16",
+                "2023-03-23"
+            ]
+        }
+    ]
+}

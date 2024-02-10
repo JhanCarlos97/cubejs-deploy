@@ -1,0 +1,10 @@
+{
+    "dimensions": [
+      "bus_another_provider_TranslateResponseCustom.translateStatus",
+      "bus_another_provider_TranslateResponseCustom.responseText",
+      "bus_another_provider_TranslateResponseCustom.spanishResponseText"
+    ],
+    "order": {
+      "bus_another_provider_TranslateResponseCustom.translateStatus": "asc"
+    }
+  }

@@ -1,0 +1,28 @@
+{
+    "measures": [
+        "bus_iot_schedulingReport.units",
+        "bus_iot_schedulingReport.scheduling",
+        "bus_iot_schedulingReport.pctUsingSchedule"
+    ],
+    "dimensions": [],
+    "filters": [
+        {
+            "operator": "equals",
+            "values": [
+                "2d9a8c6e-e19f-493c-8b4a-d0012a8535e7"
+            ],
+            "member": "bus_iot_schedulingReport.communityId"
+        }
+    ],
+    "timezone": "UTC",
+    "order": [],
+    "timeDimensions": [
+        {
+            "dimension": "bus_iot_schedulingReport.updatedAt",
+            "dateRange": [
+                "2023-03-01",
+                "2023-03-10"
+            ]
+        }
+    ]
+}

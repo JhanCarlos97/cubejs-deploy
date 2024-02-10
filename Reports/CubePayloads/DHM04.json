@@ -1,0 +1,30 @@
+{
+    "measures": [
+        "bus_another_provider_Conversations.conversionTourScheduledForm"
+    ],
+    "filters": [
+        {
+            "member": "bus_another_provider_Conversations.turnDay",
+            "operator": "inDateRange",
+			"values": [
+			  "2021-07-01",
+			  "2022-08-19"
+			]
+		  },
+        {
+            "member": "bus_another_provider_Conversations.communityId",
+            "operator": "equals",
+            "values": [
+              "5874ce54-2279-4898-bfef-967afc90478c",
+              "c67ec221-9c8b-4ecc-b777-c1b2ff2fccc9",
+              "530f6b82-4b5d-4d61-bbc8-8dbafc47a17f",
+              "cfae599d-f9eb-4bb2-94aa-7e811478acd9",
+              "70f6627e-918b-4dba-8ef7-484b055bbfc7",
+              "20df3361-9f4b-4d7c-a893-3430c1336d1c"
+            ]
+        }
+      ],
+    "segments": [
+      "bus_another_provider_Conversations.dhm01Segment"
+    ]
+  }

@@ -1,0 +1,36 @@
+{
+    "filters": [
+      {
+        "member": "bus_MismatchIntents_vendor_name.communityId",
+        "operator": "equals",
+        "values": [
+          "d67cd7e9-3cc3-4474-a7f8-97d348f2a3d5"
+        ]
+      },
+      {
+        "member": "bus_MismatchIntents_vendor_name.turnTimeDate",
+        "operator": "inDateRange",
+        "values": [
+            "2021-07-01",
+            "2022-07-06"
+        ]
+      }
+    ],
+    "dimensions": [
+      "bus_MismatchIntents_vendor_name.turnTimeDate",
+      "bus_MismatchIntents_vendor_name.conversationsId",
+      "bus_MismatchIntents_vendor_name.hourMinute",
+      "bus_MismatchIntents_vendor_name.userRequest",
+      "bus_MismatchIntents_vendor_name.historicResponseText",
+      "bus_MismatchIntents_vendor_name.intentName",
+      "bus_MismatchIntents_vendor_name.communityId",
+      "bus_MismatchIntents_vendor_name.flag",
+      "bus_MismatchIntents_vendor_name.turnTime"
+    ],
+    "ungrouped": true,
+    "order": {
+        "bus_MismatchIntents_vendor_name.conversationsId": "asc",
+        "bus_MismatchIntents_vendor_name.turnTime": "asc",
+        "bus_MismatchIntents_vendor_name.userRequest": "asc"
+      }
+  }

@@ -1,0 +1,37 @@
+{
+    "dimensions": [
+        "bus_pms_MoveIn.moveInStatus",
+        "bus_pms_MoveIn.moveInStatusTotal",
+        "bus_pms_MoveIn.unitName",
+        "bus_pms_MoveIn.resident",
+        "bus_pms_MoveIn.unitType",
+        "bus_pms_MoveIn.bedBath",
+        "bus_pms_MoveIn.sqFeet",
+        "bus_pms_MoveIn.leaseRent",
+        "bus_pms_MoveIn.marketRent",
+        "bus_pms_MoveIn.difference",
+        "bus_pms_MoveIn.moveInDate",
+        "bus_pms_MoveIn.leaseTermLength",
+        "bus_pms_MoveIn.PhoneNumber"
+    ],
+     "filters": [
+         {
+        "member": "bus_pms_MoveIn.businessUnitId",
+        "operator": "equals",
+        "values": [
+          "f05ca239-96f3-4d98-8a85-081c749a1c7b"
+        ]
+      },
+      {
+        "member": "bus_pms_MoveIn.moveInDate",
+        "operator": "inDateRange",
+        "values": [
+            "2022-01-23",
+            "2023-05-20"
+        ]
+      }
+    ],
+    "order": {
+      "bus_pms_MoveIn.unitName": "asc"
+    }
+  }

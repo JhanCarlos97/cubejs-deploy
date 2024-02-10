@@ -1,0 +1,62 @@
+cubes:
+  - name: stg_pet
+    extends: raw_dwh_pet
+
+    dimensions:
+      - name: petId
+        sql: '{CUBE}."PET_ID"'
+        type: string
+        primary_key: true
+        shown: true
+      
+      - name: businessUnitId
+        sql: '{CUBE}."BUSINESS_UNIT_ID"'
+        type: string
+        shown: true
+
+      - name: customerId
+        sql: '{CUBE}."CUSTOMER_ID"'
+        type: string
+        shown: true
+
+      - name: petOwnerPartyId
+        sql: '{CUBE}."PET_OWNER_PARTY_ID"'
+        type: string
+        shown: true
+
+      - name: petBreed
+        sql: '{CUBE}."PET_BREED"'
+        type: string
+        shown: true
+
+      - name: petName
+        sql: '{CUBE}."PET_NAME"'
+        type: string
+        shown: true
+
+      - name: petSex
+        sql: '{CUBE}."PET_SEX"'
+        type: string
+        shown: true
+
+      - name: petSpecies
+        sql: '{CUBE}."PET_SPECIES"'
+        type: string
+        shown: true
+
+      - name: petWeight
+        sql: '{CUBE}."PET_WEIGHT"'
+        type: string
+        shown: true
+
+      - name: emittedAtDate
+        sql: '{CUBE}."UDM_EMITTED_AT_DATE"'
+        type: string
+        shown: true
+
+      - name: udmPetUuid
+        sql: '{CUBE}."UDM_PET_UUID"'
+        type: string
+        shown: true
+    
+    data_source: snowflake_pms

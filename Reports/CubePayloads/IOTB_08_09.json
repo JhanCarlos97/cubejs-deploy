@@ -1,0 +1,24 @@
+{"measures": [
+    "bus_iot_Access_and_Keys_Unit_Access.total",
+    "bus_iot_Access_and_Keys_Unit_Access.vacant",
+    "bus_iot_Access_and_Keys_Unit_Access.occupied"
+
+  ],
+  "dimensions": [
+    "bus_iot_Access_and_Keys_Unit_Access.order",
+    "bus_iot_Access_and_Keys_Unit_Access.roleType"
+
+  ],
+  "order": {
+    "bus_iot_Access_and_Keys_Unit_Access.order": "asc"
+  },
+  "filters": [
+    {
+      "member": "bus_iot_Access_and_Keys_Unit_Access.communityId",
+      "operator": "equals",
+      "values": [
+        "2406102f-05f0-4228-b196-3e6c574c67d6"
+      ]
+    }
+  ]
+}

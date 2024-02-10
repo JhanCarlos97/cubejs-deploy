@@ -1,0 +1,30 @@
+{
+    "measures": [
+        "bus_another_provider_Conversations.avgConversationDuration"
+    ],
+    "filters": [
+        {
+            "member": "bus_another_provider_Conversations.turnDay",
+            "operator": "inDateRange",
+			"values": [
+			  "2021-07-01",
+			  "2022-08-19"
+			]
+		  },
+        {
+            "member": "bus_another_provider_Conversations.communityId",
+            "operator": "equals",
+            "values": [
+              "55b899db-5a72-4175-860b-7d638da9a617",
+              "afc57a88-2928-4143-a7be-08d714ac8c2a",
+              "1bbec583-b991-4bfc-b4a2-0959e98e22df",
+              "530f6b82-4b5d-4d61-bbc8-8dbafc47a17f",
+              "7f41f529-7704-4698-96e2-4836ad3f1cb7",
+              "5874ce54-2279-4898-bfef-967afc90478c"
+            ]
+        }
+      ],
+    "segments": [
+      "bus_another_provider_Conversations.dhm01Segment"
+    ]
+  }

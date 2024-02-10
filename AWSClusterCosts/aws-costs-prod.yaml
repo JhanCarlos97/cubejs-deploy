@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: aws-costs-cron
+spec:
+  jobTemplate:
+    metadata:
+        name: aws-costs-cron
+    spec:
+      template:
+        spec:
+          containers:
+          - image: aws_company_account.dkr.ecr.us-east-1.amazonaws.com/aws-costs-cron:latest
+            name: aws-costs-cron
+            envFrom:
+            - configMapRef:
+                name: aws-costs-cm
+            imagePullPolicy: Always
+          restartPolicy: Never
+  schedule: '0 4 * * 1'

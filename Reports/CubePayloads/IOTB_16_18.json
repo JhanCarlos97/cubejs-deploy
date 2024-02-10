@@ -1,0 +1,19 @@
+{  "dimensions": [
+      "bus_iot_Hardware_Errors.order",
+      "bus_iot_Hardware_Errors.hardware",
+      "bus_iot_Hardware_Errors.color"
+
+    ],
+  "measures": [
+    "bus_iot_Hardware_Errors.quantity"
+  ],
+  "filters": [
+    {
+      "member": "bus_iot_Hardware_Errors.communityId",
+      "operator": "equals",
+      "values": [
+        "2406102f-05f0-4228-b196-3e6c574c67d6"
+      ]
+    }
+  ]
+}

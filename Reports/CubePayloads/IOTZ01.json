@@ -1,0 +1,30 @@
+{
+  "measures": [
+    "bus_iot_loraStatistics.total",
+    "bus_iot_loraStatistics.success",
+    "bus_iot_loraStatistics.successRate"
+  ],
+  "dimensions": [],
+  "filters": [
+    {
+      "operator": "equals",
+      "values": [
+        "84a12539-f576-4a14-ba26-58d57265a3e6"
+      ],
+      "member": "bus_iot_loraStatistics.communityId"
+    }
+  ],
+  "timezone": "UTC",
+  "order": {
+    "bus_iot_loraStatistics.dt": "asc"
+  },
+  "timeDimensions": [
+    {
+      "dimension": "bus_iot_loraStatistics.dt",
+      "dateRange": [
+        "2023-03-01",
+        "2023-03-10"
+      ]
+    }
+  ]
+}

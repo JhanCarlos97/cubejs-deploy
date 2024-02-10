@@ -1,0 +1,21 @@
+{
+    "dimensions": [
+      "bus_provider_batch.batch",
+      "bus_provider_batch.chargeCodeId",
+      "bus_provider_batch.chargeCodeDescription"
+    ],
+      "filters": [
+        {
+        "member": "bus_provider_batch.businessUnitId",
+        "operator": "equals",
+        "values": [
+            "5eb85846-d8f5-4b0d-9bad-ecc4deb8d739"
+        ]
+        },
+        {
+        "member": "bus_provider_batch.batch",
+        "operator": "contains",
+        "values": ["some_batch"]
+        }
+    ]
+}

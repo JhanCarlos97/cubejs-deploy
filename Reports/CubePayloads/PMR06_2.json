@@ -1,0 +1,26 @@
+   {
+  "dimensions": [
+    "bus_pms_generalLedger.glTypeName",
+    "bus_pms_generalLedger.totalByTypePMR06",
+    "bus_pms_generalLedger.accountNumberPMR06",
+    "bus_pms_generalLedger.accountNamePMR06",
+    "bus_pms_generalLedger.balancePMR06"
+  ],
+  "filters": [
+    {
+      "member": "bus_pms_generalLedger.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "c71a9d7b-a7db-4b54-b3f5-33b98de31b01"
+      ]
+    },
+    {
+        "member": "bus_pms_generalLedger.transactionDate",
+        "operator": "inDateRange",
+        "values": ["2023-01-10","2023-02-01"]
+      }
+  ],
+    "segments": [
+      "bus_pms_generalLedger.pmr06Segment"
+    ]
+  }

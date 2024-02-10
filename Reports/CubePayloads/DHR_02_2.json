@@ -1,0 +1,34 @@
+{
+    "dimensions": [
+      "stg_another_provider_Customer.cCustomerName",
+      "stg_another_provider_Community.cCommunityName",
+      "stg_another_provider_AppUser.person",
+      "stg_another_provider_IntentResponse.responseText",
+      "bus_another_provider_CustomerCustomResponse.flagged",
+      "bus_another_provider_CustomerCustomResponse.frozen",
+      "bus_another_provider_CustomerCustomResponse.reviewed",
+      "bus_another_provider_CustomerCustomResponse.active"
+    ],
+    "order": [
+      [
+        "stg_another_provider_Customer.cCustomerName",
+        "asc"
+      ],
+      [
+        "stg_another_provider_Community.cCommunityName",
+        "asc"
+      ],
+      [
+        "stg_another_provider_AppUser.person",
+        "asc"
+      ],
+      [
+        "stg_another_provider_IntentResponse.responseText",
+        "asc"
+      ]
+    ],
+    "segments": [
+      "bus_another_provider_CustomerCustomResponse.defaultSegment",
+      "bus_another_provider_CustomerCustomResponse.innerJoinSegment"
+    ]
+  }

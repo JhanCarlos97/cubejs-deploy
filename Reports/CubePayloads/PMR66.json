@@ -1,0 +1,23 @@
+{
+  "measures": [                      
+    "bus_pms_rentableItems.residents"
+      ],  
+  "dimensions": [                    
+      "bus_pms_rentableItems.unitName",                              
+      "bus_pms_rentableItems.phoneNumber",
+      "bus_pms_rentableItems.rentableItems",
+      "bus_pms_rentableItems.recurrentAmount",
+      "bus_pms_rentableItems.reservationStartDate",
+      "bus_pms_rentableItems.reservationEndDate",
+      "bus_pms_rentableItems.reservationStatus"
+  ],  
+  "filters": [
+       {
+    "member": "bus_pms_rentableItems.communityId",
+    "operator": "equals",
+    "values": [
+      "cf5ae860-c81e-47eb-a7ed-562ec1c537de"
+      ]
+    }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+  "dimensions": [
+    "bus_pms_residentLedger.businessUnitId",
+    "bus_pms_residentLedger.resident",
+    "bus_pms_residentLedger.unit",
+    "bus_pms_residentLedger.date",
+    "bus_pms_residentLedger.reference",
+    "bus_pms_residentLedger.code",
+    "bus_pms_residentLedger.credit",
+    "bus_pms_residentLedger.charge",
+    "bus_pms_residentLedger.balance"
+  ],
+  "order": {   
+    "bus_pms_residentLedger.date": "desc",
+    "bus_pms_residentLedger.balance": "desc"
+  },
+  "measures": [
+  ],
+  "filters": [
+    {
+      "member": "bus_pms_residentLedger.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "17c41bb2-886b-4544-9f58-f434f8f58672"
+      ]
+    },    
+    {
+      "member": "bus_pms_residentLedger.unit",
+      "operator": "equals",
+      "values": [
+        "Unit 98"
+      ]
+    }
+  ]
+}   

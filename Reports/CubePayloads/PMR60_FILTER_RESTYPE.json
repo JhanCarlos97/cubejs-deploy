@@ -1,0 +1,14 @@
+{
+  "dimensions": [
+    "bus_pms_residentList.residentType"
+  ],
+  "filters": [
+    {
+      "member": "bus_pms_residentList.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "f05ca239-96f3-4d98-8a85-081c749a1c7b"
+      ]
+    }
+  ]
+}

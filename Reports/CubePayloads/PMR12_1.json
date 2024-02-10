@@ -1,0 +1,15 @@
+{
+ "measures": [
+        "bus_pms_checkRegister.totalCount",
+         "bus_pms_checkRegister.totalAmount"
+    ],
+     "filters": [
+    {
+      "member": "bus_pms_checkRegister.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "17c41bb2-886b-4544-9f58-f434f8f58672"
+      ]
+    }
+  ]
+}

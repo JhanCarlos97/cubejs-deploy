@@ -1,0 +1,60 @@
+cubes:
+  - name: stg_insurance
+    extends: raw_dwh_rental_insurance
+    data_source: snowflake_pms
+    public: false
+  
+    dimensions:
+    
+      - name: business_unit_id
+        sql: '{CUBE}."BUSINESS_UNIT_ID"'
+        type: string
+
+      - name: carrier_name
+        sql: '{CUBE}."CARRIER_NAME"'
+        type: string
+
+      - name: customer_id
+        sql: '{CUBE}."CUSTOMER_ID"'
+        type: string
+
+      - name: document_image_uri
+        sql: '{CUBE}."DOCUMENT_IMAGE_URI"'
+        type: string
+
+      - name: insured_name
+        sql: '{CUBE}."INSURED_NAME"'
+        type: string
+
+      - name: party_id
+        sql: '{CUBE}."PARTY_ID"'
+        type: string
+
+      - name: policy_expiration_date
+        sql: '{CUBE}."POLICY_EXPIRATION_DATE"'
+        type: string
+
+      - name: policy_number
+        sql: '{CUBE}."POLICY_NUMBER"'
+        type: string
+
+      - name: policy_start_date
+        sql: '{CUBE}."POLICY_START_DATE"'
+        type: string
+
+      - name: policy_status
+        sql: '{CUBE}."POLICY_STATUS"'
+        type: string
+
+      - name: policy_type
+        sql: '{CUBE}."POLICY_TYPE"'
+        type: string
+
+      - name: rental_insurance_uuid
+        sql: '{CUBE}."RENTAL_INSURANCE_UUID"'
+        type: string
+
+      - name: udm_emitted_at_date
+        sql: '{CUBE}."UDM_EMITTED_AT_DATE"'
+        type: date
+

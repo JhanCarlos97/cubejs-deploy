@@ -1,0 +1,11 @@
+{
+  "dimensions": [
+    "bus_pms_generalLedger.accountNumberGTE"
+  ],
+  "order": {
+    "bus_pms_generalLedger.accountNumberGTE": "asc"
+  },
+  "filters": [
+
+  ]
+  }

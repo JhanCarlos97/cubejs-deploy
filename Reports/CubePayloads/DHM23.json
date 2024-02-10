@@ -1,0 +1,38 @@
+{
+        "measures": [
+            "bus_another_provider_ConversationsByPlatformUnion.totalTourScheduled",
+            "bus_another_provider_ConversationsByPlatformUnion.totalConversation",
+            "bus_another_provider_ConversationsByPlatformUnion.conversionRateTour"
+        ],
+        "dimensions": [
+            "bus_another_provider_ConversationsByPlatformUnion.category"
+        ],
+        "filters": [
+            {
+                "member": "bus_another_provider_ConversationsByPlatformUnion.communityId",
+                "operator": "equals",
+                "values": [
+                    "03e09027-2f83-459d-becd-c88bbb428255",
+                    "c67ec221-9c8b-4ecc-b777-c1b2ff2fccc9",
+                    "916a28ea-95ba-4d7e-a2cd-d77f2a76bf5d",
+                    "7e974deb-3eff-4118-bd7a-9b6b99b3e6cb",
+                    "aac9b18a-f1bd-4bad-a39a-2e8364841ebc",
+                    "e774c53f-a9df-4a08-97f1-25b45219ccea"
+                ]
+            },
+            {
+                "member": "bus_another_provider_ConversationsByPlatformUnion.turnDay",
+                "operator": "inDateRange",
+                "values": [
+                    "2021-07-01",
+                    "2022-08-19"
+                ]
+            }
+        ],
+        "order": [
+            [
+                "bus_another_provider_ConversationsByPlatformUnion.totalConversation",
+                "desc"
+            ]
+        ]
+    }

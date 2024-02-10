@@ -1,0 +1,45 @@
+{
+    "dimensions": [
+      "bus_another_provider_Transcript.turnTime",
+      "bus_another_provider_Transcript.conversationsId",
+      "stg_another_provider_TurnsData_Transcript.duration",
+      "stg_another_provider_TurnsData_Transcript.total",
+      "bus_another_provider_Transcript.hourMinute",
+      "bus_another_provider_Transcript.userRequest",
+      "bus_another_provider_Transcript.historicResponseText",
+      "bus_another_provider_Transcript.isFacePresent",
+      "bus_another_provider_Transcript.intentDetectionConfidence",
+      "stg_another_provider_TurnsData_Transcript.conversationsId"
+    ],
+    "order": [
+      [
+        "bus_another_provider_Transcript.conversationsId",
+        "asc"
+      ],
+      [
+        "bus_another_provider_Transcript.turnTime",
+        "asc"
+      ]
+    ],
+    "filters": [
+      {
+        "member": "bus_another_provider_Transcript.communityId",
+        "operator": "equals",
+        "values": [
+          "d67cd7e9-3cc3-4474-a7f8-97d348f2a3d5"
+        ]
+      },
+      {
+        "member": "bus_another_provider_Transcript.turnTime",
+        "operator": "inDateRange",
+        "values": [
+          "2022-07-01",
+          "2022-07-06"
+        ]
+      }
+    ],
+    "segments": [
+      "bus_another_provider_Transcript.innerJoinSegment"
+    ],
+    "ungrouped": true
+  }

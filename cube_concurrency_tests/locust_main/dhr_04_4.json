@@ -1,0 +1,18 @@
+{
+    "dimensions": [
+      "bus_TranslateResponseCustom_vendor_name.mainTopic",
+      "bus_TranslateResponseCustom_vendor_name.conversationDetail",
+      "bus_TranslateResponseCustom_vendor_name.nextLevelDetail",
+      "bus_TranslateResponseCustom_vendor_name.translateStatus",
+      "bus_TranslateResponseCustom_vendor_name.responseText",
+      "bus_TranslateResponseCustom_vendor_name.spanishResponseText"
+    ],
+    "order": {
+      "bus_TranslateResponseCustom_vendor_name.mainTopic": "asc",
+      "bus_TranslateResponseCustom_vendor_name.conversationDetail": "asc",
+      "bus_TranslateResponseCustom_vendor_name.nextLevelDetail": "asc",
+      "bus_TranslateResponseCustom_vendor_name.translateStatus": "asc",
+      "bus_TranslateResponseCustom_vendor_name.responseText": "asc",
+      "bus_TranslateResponseCustom_vendor_name.spanishResponseText": "asc"
+    }
+  }

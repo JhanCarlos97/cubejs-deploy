@@ -1,0 +1,43 @@
+{
+    "dimensions": [    
+      "bus_pmsVehicleList.unit",
+      "bus_pmsVehicleList.resident",        
+      "bus_pmsVehicleList.makeAndModel",
+      "bus_pmsVehicleList.color",
+      "bus_pmsVehicleList.licensePlate",
+      "bus_pmsVehicleList.state",
+      "bus_pmsVehicleList.parkingType"
+    ],
+    "filters": [
+        {
+            "and": [
+                {"member": "bus_pmsVehicleList.businessUnitId",
+                "operator": "equals",
+                "values": [
+                    "17c41bb2-886b-4544-9f58-f434f8f58672"
+                ]
+                },
+                {
+                "member": "bus_pmsVehicleList.moveInDate",
+                "operator": "lte",
+                "values": ["2023-02-21"]
+                },
+                {
+                    "or": [
+                        {
+                            "member": "bus_pmsVehicleList.householdMoveOutDate",
+                            "operator": "gte",
+                            "values": ["2023-02-21"]
+                        },
+                        {
+                            "member": "bus_pmsVehicleList.householdMoveOutDate",
+                            "operator": "equals",
+                            "values": [null]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+  

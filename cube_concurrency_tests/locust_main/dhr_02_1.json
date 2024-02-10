@@ -1,0 +1,19 @@
+{
+    "dimensions": [
+      "stg_Customer_vendor_name.cCustomerName"
+    ],
+    "measures": [
+      "bus_CustomerCustomResponse_vendor_name.totalCreated",
+      "bus_CustomerCustomResponse_vendor_name.totalActive"
+    ],
+    "order": [
+      [
+        "stg_Customer_vendor_name.cCustomerName",
+        "asc"
+      ]
+    ],
+    "segments": [
+      "bus_CustomerCustomResponse_vendor_name.defaultSegment",
+      "bus_CustomerCustomResponse_vendor_name.innerJoinSegment"
+    ]
+  }

@@ -1,0 +1,58 @@
+{
+  "dimensions": [
+      "bus_ConversationsDurationByMonth_vendor_name_Metrics.turnYear",
+      "bus_ConversationsDurationByMonth_vendor_name_Metrics.turnMonth",
+      "bus_ConversationsDurationByMonth_vendor_name_Metrics.monthName",
+      "bus_ConversationsDurationByMonth_vendor_name_Metrics.dhName"
+  ],
+  "measures": [
+      "bus_ConversationsDurationByMonth_vendor_name_Metrics.totalConversation"
+  ],
+  "order": {
+      "bus_ConversationsDurationByMonth_vendor_name_Metrics.turnYear": "asc",
+      "bus_ConversationsDurationByMonth_vendor_name_Metrics.turnMonth": "asc",
+      "bus_ConversationsDurationByMonth_vendor_name_Metrics.dhName": "asc"
+  },
+  "filters": [
+      {
+          "member": "bus_ConversationsDurationByMonth_vendor_name_Metrics.turnDay",
+          "operator": "inDateRange",
+          "values": [
+              "2021-07-01",
+              "2022-08-19"
+          ]
+      },
+      {
+          "member": "bus_ConversationsDurationByMonth_vendor_name_Metrics.communityId",
+          "operator": "equals",
+          "values": [
+            "b5d070af-7f18-42bd-916c-6a3074ecb393",
+            "1bbec583-b991-4bfc-b4a2-0959e98e22df",
+            "997187d9-5e33-4032-966e-aacb5bfd15a8",
+            "45f37fa3-17b5-4b6f-9c23-01c8378212da",
+            "88c43d57-8d9b-447a-855b-1a3e4c83e6f2",
+            "4756b06f-fefb-4348-99b7-786e010b11f8"
+          ]
+      },
+      {
+          "member": "bus_ConversationsDurationByMonth_vendor_name_Metrics.convTurnsPlaceholder",
+          "operator": "gt",
+          "values": ["1"]
+      },
+      {
+          "member": "bus_ConversationsDurationByMonth_vendor_name_Metrics.dhNamePlaceholder",
+          "operator": "equals",
+          "values": ["1"]
+      },
+      {
+          "member": "bus_ConversationsDurationByMonth_vendor_name_Metrics.languagePlaceholder",
+          "operator": "equals",
+          "values": ["1"]
+      },
+      {
+          "member": "bus_ConversationsDurationByMonth_vendor_name_Metrics.tourScheduledFormPlaceholder",
+          "operator": "equals",
+          "values": ["true"]
+      }
+  ]
+}

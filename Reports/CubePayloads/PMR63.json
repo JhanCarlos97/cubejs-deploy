@@ -1,0 +1,37 @@
+ {
+     "measures":[
+     "bus_pms_servicesRequests.assignees"],
+  "dimensions": [
+     "bus_pms_servicesRequests.unit",
+     "bus_pms_servicesRequests.priority",
+     "bus_pms_servicesRequests.category",
+     "bus_pms_servicesRequests.status",
+     "bus_pms_servicesRequests.createdDate",
+     "bus_pms_servicesRequests.completionDate",
+     "bus_pms_servicesRequests.daysToComplete"
+       ],
+ "filters": [
+       {
+      "member": "bus_pms_servicesRequests.communityId",
+      "operator": "equals",
+      "values": [
+        "ef46426e-607b-4412-81ac-00513c43e799"
+      ]
+    },
+    {
+      "member": "bus_pms_servicesRequests.assigneeId",
+      "operator": "equals",
+      "values": [
+        "457ca943-b7f6-4dc6-9849-841717f01616"
+      ]
+    },
+    {
+        "member": "bus_pms_servicesRequests.createdDate",
+        "operator": "inDateRange",
+        "values": [
+          "2021-01-01",
+          "2023-02-01"
+        ]
+      }
+  ]
+}

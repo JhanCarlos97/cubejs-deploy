@@ -1,0 +1,42 @@
+{
+    "dimensions": [
+      "bus_TourScheduledByTimeOfDay_vendor_name_Metrics.order",
+      "bus_TourScheduledByTimeOfDay_vendor_name_Metrics.category"
+    ],
+    "measures": [
+      "bus_TourScheduledByTimeOfDay_vendor_name_Metrics.quantity",
+      "bus_TourScheduledByTimeOfDay_vendor_name_Metrics.totalPercentageQuantity"
+    ],
+    "order": [
+      [
+        "bus_TourScheduledByTimeOfDay_vendor_name_Metrics.order",
+        "asc"
+      ],
+      [
+        "bus_TourScheduledByTimeOfDay_vendor_name_Metrics.category",
+        "asc"
+      ]
+    ],
+    "filters": [
+      {
+        "member": "bus_TourScheduledByTimeOfDay_vendor_name_Metrics.dt",
+        "operator": "inDateRange",
+        "values": [
+          "2021-08-15",
+          "2022-08-16"
+        ]
+      },
+      {
+        "member": "bus_TourScheduledByTimeOfDay_vendor_name_Metrics.communityId",
+        "operator": "equals",
+        "values": [
+          "c45d066e-7e14-4884-8dcc-064045596dd5",
+          "55672ef1-a7b2-4f07-ad1a-77b80a0a85de",
+          "544eb596-c85e-4ee0-a37d-49d7552b6780",
+          "afccad35-3d33-4861-bbf2-19187fc3bd37",
+          "9412aaa6-4222-4f73-827f-efcd85b62c9e",
+          "45f37fa3-17b5-4b6f-9c23-01c8378212da"
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,19 @@
+{
+  "measures": [
+    "bus_iot_AccessAuthorization.quantity"
+  ],
+  "order": {
+  },
+  "segments": [
+    "bus_iot_AccessAuthorization.mainSegment"
+  ],
+  "filters": [
+    {
+      "member": "bus_iot_AccessAuthorization.apartmentCommunityId",
+      "operator": "equals",
+      "values": [
+        "84a12539-f576-4a14-ba26-58d57265a3e6"
+      ]
+    }
+  ]
+}

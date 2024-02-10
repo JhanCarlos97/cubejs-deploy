@@ -1,0 +1,15 @@
+{
+  "dimensions": [
+     "bus_pms_servicesRequests.assigneeId",
+     "bus_pms_servicesRequests.assignee"
+       ],
+ "filters": [
+       {
+      "member": "bus_pms_servicesRequests.communityId",
+      "operator": "equals",
+      "values": [
+        "cf5ae860-c81e-47eb-a7ed-562ec1c537de"
+      ]
+    }
+  ]
+}

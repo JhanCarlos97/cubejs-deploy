@@ -1,0 +1,11 @@
+{
+    "measures": [
+      "bus_another_provider_TranslateResponseCustom.totalResponses",
+      "bus_another_provider_TranslateResponseCustom.translatedResponses",
+      "bus_another_provider_TranslateResponseCustom.translatedResponsesPercentage",
+      "bus_another_provider_TranslateResponseCustom.outdatedTranslations",
+      "bus_another_provider_TranslateResponseCustom.outdatedTranslationsPercentage",
+      "bus_another_provider_TranslateResponseCustom.missingTranslations",
+      "bus_another_provider_TranslateResponseCustom.missingTranslationsPercentage"
+    ]
+  }

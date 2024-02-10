@@ -1,0 +1,18 @@
+{
+    "dimensions": [
+      "bus_another_provider_TranslateResponseCustom.mainTopic",
+      "bus_another_provider_TranslateResponseCustom.conversationDetail",
+      "bus_another_provider_TranslateResponseCustom.nextLevelDetail",
+      "bus_another_provider_TranslateResponseCustom.translateStatus",
+      "bus_another_provider_TranslateResponseCustom.responseText",
+      "bus_another_provider_TranslateResponseCustom.spanishResponseText"
+    ],
+    "order": {
+      "bus_another_provider_TranslateResponseCustom.mainTopic": "asc",
+      "bus_another_provider_TranslateResponseCustom.conversationDetail": "asc",
+      "bus_another_provider_TranslateResponseCustom.nextLevelDetail": "asc",
+      "bus_another_provider_TranslateResponseCustom.translateStatus": "asc",
+      "bus_another_provider_TranslateResponseCustom.responseText": "asc",
+      "bus_another_provider_TranslateResponseCustom.spanishResponseText": "asc"
+    }
+  }

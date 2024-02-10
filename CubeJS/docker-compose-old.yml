@@ -1,0 +1,88 @@
+version: '2.2'
+
+services:
+  cube_api:
+    restart: always
+    image: cubejs/cube:v0.30.75
+    ports:
+      - 4000:4000
+      - 3000:3000
+    environment:
+      # - CUBEJS_CUBESTORE_HOST=cubestore_router
+      - CUBEJS_REDIS_URL=redis://redis:6379
+      - CUBEJS_API_SECRET=secret
+      - CUBEJS_DEV_MODE=true
+      - CUBEJS_DB_MAX_POOL=10000
+      - CUBEJS_REDIS_POOL_MAX=10000
+      - CUBEJS_DB_SSL=true
+      - CUBEJS_BUILD_PRE_AGGREGATIONS=false
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    volumes:
+      - .:/cube/conf
+  #   depends_on:
+  #     - cube_refresh_worker
+
+  # cube_refresh_worker:
+  #   restart: always
+  #   image: cubejs/cube:v0.30.75
+  #   environment:
+  #     - CUBEJS_CUBESTORE_HOST=cubestore_router
+  #     - CUBEJS_REDIS_URL=redis://redis:6379
+  #     - CUBEJS_API_SECRET=secret
+  #     - CUBEJS_REFRESH_WORKER=true
+  #     - CUBEJS_DB_MAX_POOL=10000
+  #     - CUBEJS_REDIS_POOL_MAX=10000
+      
+  #   volumes:
+  #     - .:/cube/conf
+
+  # cubestore_router:
+  #   restart: always
+  #   image: cubejs/cubestore:latest
+  #   environment:
+  #     - CUBESTORE_WORKERS=cubestore_worker_1:10001,cubestore_worker_2:10002
+  #     - CUBESTORE_META_PORT=9999
+  #     - CUBESTORE_SERVER_NAME=cubestore_router:9999
+  #     - CUBEJS_DB_MAX_POOL=10000
+  #     - CUBEJS_REDIS_POOL_MAX=10000
+  #   volumes:
+  #     - .:/cube/data
+
+  # cubestore_worker_1:
+  #   restart: always
+  #   image: cubejs/cubestore:latest
+  #   environment:
+  #     - CUBESTORE_WORKERS=cubestore_worker_1:10001,cubestore_worker_2:10002
+  #     - CUBESTORE_SERVER_NAME=cubestore_worker_1:10001
+  #     - CUBESTORE_WORKER_PORT=10001
+  #     - CUBESTORE_META_ADDR=cubestore_router:9999
+  #     - CUBEJS_DB_MAX_POOL=10000
+  #     - CUBEJS_REDIS_POOL_MAX=10000
+  #   volumes:
+  #     - .:/cube/data
+  #   depends_on:
+  #     - cubestore_router
+
+  # cubestore_worker_2:
+  #   restart: always
+  #   image: cubejs/cubestore:latest
+  #   environment:
+  #     - CUBESTORE_WORKERS=cubestore_worker_1:10001,cubestore_worker_2:10002
+  #     - CUBESTORE_SERVER_NAME=cubestore_worker_2:10002
+  #     - CUBESTORE_WORKER_PORT=10002
+  #     - CUBESTORE_META_ADDR=cubestore_router:9999
+  #     - CUBEJS_DB_MAX_POOL=10000
+  #     - CUBEJS_REDIS_POOL_MAX=10000
+  #   volumes:
+  #     - .:/cube/data
+  #   depends_on:
+  #     - cubestore_router
+
+  redis:
+    image: bitnami/redis:latest
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    logging:
+      driver: none

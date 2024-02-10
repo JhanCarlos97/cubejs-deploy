@@ -1,0 +1,55 @@
+{
+    "dimensions": [
+      "stg_Intent_vendor_name.intentCategoryName",
+      "stg_IntentParent_vendor_name.suggestionText",
+      "stg_Intent_vendor_name.nextLevelDetail",
+      "stg_Customer_vendor_name.cCustomerNameNotFixed",
+      "stg_Community_vendor_name.cCommunityNameNotFixed",
+      "stg_AppUser_vendor_name.personNotFixed",
+      "stg_IntentResponse_vendor_name.responseText",
+      "bus_CustomerCustomResponse_vendor_name.flagged",
+      "bus_CustomerCustomResponse_vendor_name.frozen",
+      "bus_CustomerCustomResponse_vendor_name.reviewed",
+      "bus_CustomerCustomResponse_vendor_name.active"
+    ],
+    "order": [
+              [
+        "stg_Intent_vendor_name.intentCategoryName",
+        "asc"
+      ],      [
+        "stg_IntentParent_vendor_name.suggestionText",
+        "asc"
+      ],      [
+        "stg_Intent_vendor_name.nextLevelDetail",
+        "asc"
+      ],
+      [
+        "stg_Customer_vendor_name.cCustomerName",
+        "asc"
+      ],
+      [
+        "stg_Community_vendor_name.cCommunityName",
+        "asc"
+      ],
+      [
+        "stg_AppUser_vendor_name.person",
+        "asc"
+      ],
+      [
+        "stg_IntentResponse_vendor_name.responseText",
+        "asc"
+      ]
+    ],
+            "filters": [
+            {
+                "operator": "equals",
+                "values": [
+                    "Property Amenities"
+                ],
+                "member": "stg_Intent_vendor_name.intentCategoryName"
+            }
+        ],
+    "segments": [
+      "bus_CustomerCustomResponse_vendor_name.defaultSegment"
+      ]
+  }

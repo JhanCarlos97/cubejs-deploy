@@ -1,0 +1,18 @@
+ {
+  "dimensions": [                      
+          "raw_pmsri_offers.rentableItems"
+  ],  
+  "filters": [
+       {
+    "member": "raw_pmsri_offers.communityId",
+    "operator": "equals",
+    "values": [
+      "cf5ae860-c81e-47eb-a7ed-562ec1c537de"
+      ]
+    }
+ ],
+  "order": {
+      "raw_pmsri_offers.rentableItems": "asc"
+    }
+}
+

@@ -1,0 +1,59 @@
+cubes:
+  - name: stg_vehicle
+    extends: raw_dwh_vehicle
+    data_source: snowflake_pms
+    public: false
+  
+    dimensions:
+      - name: business_unit_id
+        sql: '{CUBE}."BUSINESS_UNIT_ID"'
+        type: string
+      
+      - name: customer_id
+        sql: '{CUBE}."CUSTOMER_ID"'
+        type: string
+
+      - name: licence_plate_color
+        sql: '{CUBE}."LICENCE_PLATE_COLOR"'
+        type: string
+
+      - name: licence_plate_text
+        sql: '{CUBE}."LICENCE_PLATE_TEXT"'
+        type: string      
+
+      - name: licence_plate_region
+        sql: '{CUBE}."LICENCE_PLATE_REGION"'
+        type: string
+
+      - name: primary_driver_party_id
+        sql: '{CUBE}."PRIMARY_DRIVER_PARTY_ID"'
+        type: string
+
+      - name: udm_emitted_at_date
+        sql: '{CUBE}."UDM_EMITTED_AT_DATE"'
+        type: date
+
+      - name: udm_vehicle_uuid
+        sql: '{CUBE}."UDM_VEHICLE_UUID"'
+        type: string
+
+      - name: vehicle_color
+        sql: '{CUBE}."VEHICLE_COLOR"'
+        type: string
+
+      - name: vehicle_id
+        sql: '{CUBE}."VEHICLE_ID"'
+        type: string
+        primary_key: true
+      
+      - name: vehicle_make
+        sql: '{CUBE}."VEHICLE_MAKE"'
+        type: string
+      
+      - name: vehicle_model
+        sql: '{CUBE}."VEHICLE_MODEL"'
+        type: string
+      
+      - name: vehicle_type
+        sql: '{CUBE}."VEHICLE_TYPE"'
+        type: string

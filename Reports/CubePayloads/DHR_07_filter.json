@@ -1,0 +1,12 @@
+{
+    "dimensions": [
+      "stg_another_provider_Intent.intentCategoryName"],
+    "order": [
+              [
+        "stg_another_provider_Intent.intentCategoryName",
+        "asc"
+      ]],
+    "segments": [
+      "bus_another_provider_CustomerCustomResponse.defaultSegment"
+      ]
+  }

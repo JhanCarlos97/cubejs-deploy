@@ -1,0 +1,35 @@
+{
+    "measures": [
+     "bus_another_provider_Conversations.count",    
+     "bus_another_provider_Conversations.sumTourScheduledForm",
+     "bus_another_provider_Conversations.sumSubmittedContactForm", 
+     "bus_another_provider_Conversations.avgNumTurns",
+     "bus_another_provider_Conversations.conversionRateSubmittedContactForm",
+     "bus_another_provider_Conversations.conversionTourScheduledForm"
+    ],
+
+  "dimensions": [        
+      
+      "bus_another_provider_Conversations.propertyName",
+      "bus_another_provider_Conversations.topics",
+      "bus_another_provider_Conversations.topicsDropOff"
+  ],
+    "filters": [
+      {
+        "member": "bus_another_provider_Conversations.communityId",
+        "operator": "equals",
+        "values": ["98fb8529-7a06-4398-961d-7696b872bb82"]       
+      },
+       {
+        "member": "bus_another_provider_Conversations.turnTimestampCommunityTime",
+        "operator": "inDateRange",
+        "values": [
+               "2022-04-01",
+               "2023-04-01"
+            ]
+        }
+    ],
+   "segments": [
+      "bus_another_provider_Conversations.dhm01Segment"
+    ]
+}

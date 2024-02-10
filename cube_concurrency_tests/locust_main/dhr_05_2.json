@@ -1,0 +1,37 @@
+{
+  "dimensions": [
+    "stg_Intent_vendor_name.intentCategoryName",
+    "stg_IntentParent_vendor_name.suggestionText",
+    "bus_MyConversation2_vendor_name.nextLevelDetail",
+    "bus_MyConversation2_vendor_name.active",
+    "stg_IntentResponse_vendor_name.responseText",
+    "stg_IntentResponse_vendor_name.spanishResponseText"
+  ],
+  "segments": [
+    "bus_MyConversation2_vendor_name.mainSegment"
+  ],
+  "filters": [
+    {
+      "member": "bus_MyConversation2_vendor_name.communityId",
+      "operator": "equals",
+      "values": [
+        "d67cd7e9-3cc3-4474-a7f8-97d348f2a3d5"
+      ]
+    }
+  ],
+  "order": [
+    [
+      "stg_Intent_vendor_name.intentCategoryName",
+      "asc"
+    ],
+    [
+      "stg_IntentParent_vendor_name.suggestionText",
+      "asc"
+    ],
+    [
+      "bus_MyConversation2_vendor_name.nextLevelDetail",
+      "asc"
+    ]
+  ],
+  "limit": 50000
+}

@@ -1,0 +1,39 @@
+{
+  "dimensions": [
+      "bus_pms_rentRoll.unitName",
+      "bus_pms_rentRoll.unitType",
+      "bus_pms_rentRoll.sqft",
+      "bus_pms_rentRoll.residents",
+      "bus_pms_rentRoll.unitStatus",
+      "bus_pms_rentRoll.availableDate",
+      "bus_pms_rentRoll.moveInDate",
+      "bus_pms_rentRoll.leaseStartDate",
+      "bus_pms_rentRoll.leaseExpirationDate",
+      "bus_pms_rentRoll.moveOutDate",
+      "bus_pms_rentRoll.marketRent",
+      "bus_pms_rentRoll.proFormaRent",
+      "bus_pms_rentRoll.leaseRent",
+      "bus_pms_rentRoll.deposit"
+
+  ],
+  "measures":["bus_pms_rentRoll.rentChargesAmount"],
+   "filters": [
+       {
+      "member": "bus_pms_rentRoll.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "17c41bb2-886b-4544-9f58-f434f8f58672"
+      ]
+    },
+    {
+      "member": "bus_pms_rentRoll.transactionDate",
+      "operator": "equals",
+      "values": [
+        "2023-01-21"
+      ]
+    }
+  ],
+  "order": {
+    "bus_pms_rentRoll.unitName": "asc"
+  }
+}

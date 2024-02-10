@@ -1,0 +1,32 @@
+{
+	"measures": [
+		"bus_iot_temperatureSettingsReport.maxTemperature",
+		"bus_iot_temperatureSettingsReport.thirdQuartile",
+		"bus_iot_temperatureSettingsReport.medTemperature",
+		"bus_iot_temperatureSettingsReport.firstQuartile",
+		"bus_iot_temperatureSettingsReport.minTemperature"
+	],
+	"filters": [
+		{
+			"member": "bus_iot_temperatureSettingsReport.communityId",
+			"operator": "equals",
+			"values": [
+				"2d9a8c6e-e19f-493c-8b4a-d0012a8535e7"
+			]
+		}
+	],
+	"timezone": "UTC",
+	"order": {
+		"bus_iot_temperatureSettingsReport.updatedAt": "asc"
+	},
+	"timeDimensions": [
+		{
+			"dimension": "bus_iot_temperatureSettingsReport.updatedAt",
+			"granularity": "day",
+			"dateRange": [
+				"2023-03-16",
+				"2023-03-23"
+			]
+		}
+	]
+}

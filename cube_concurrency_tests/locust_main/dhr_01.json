@@ -1,0 +1,34 @@
+{
+    "dimensions": [
+      "bus_GlobalIntentResponse_vendor_name.intentResponseId",
+      "bus_GlobalIntentResponse_vendor_name.intentNameNoSuggest",
+      "bus_GlobalIntentResponse_vendor_name.mainTopic",
+      "bus_GlobalIntentResponse_vendor_name.conversationDetail",
+      "bus_GlobalIntentResponse_vendor_name.nextLevelDetail",
+      "bus_GlobalIntentResponse_vendor_name.response",
+      "bus_GlobalIntentResponse_vendor_name.defaultResponse",
+      "bus_GlobalIntentResponse_vendor_name.communitiesUsingThisResponse"
+    ],
+    "order": [
+      [
+        "bus_GlobalIntentResponse_vendor_name.mainTopic",
+        "asc"
+      ],
+      [
+        "bus_GlobalIntentResponse_vendor_name.conversationDetail",
+        "asc"
+      ],
+      [
+        "bus_GlobalIntentResponse_vendor_name.nextLevelDetail",
+        "asc"
+      ],
+      [
+        "bus_GlobalIntentResponse_vendor_name.communitiesUsingThisResponse",
+        "desc"
+      ],
+      [
+        "bus_GlobalIntentResponse_vendor_name.intentResponseId",
+        "asc"
+      ]
+    ]
+  }

@@ -1,0 +1,31 @@
+{
+  "measures": [
+      "bus_web_metricsByCid.percentageRateByCat"
+  ],
+  "dimensions": [
+      "bus_web_metricsByCid.categoryTypeName"
+  ],
+  "filters": [
+      {
+          "member": "bus_web_metricsByCid.dateFormatted",
+          "operator": "inDateRange",
+          "values": [
+              "2023-04-01",
+              "2023-04-10"
+          ]
+      },
+      {
+          "member": "raw_web_hostnameMapping.communityId",
+          "operator": "equals",
+          "values": [
+              "aac9b18a-f1bd-4bad-a39a-2e8364841ebc"
+          ]
+      }
+  ],
+  "segments": [
+    "bus_web_metricsByCid.removeNullCat"
+  ],
+  "order": {
+      "bus_web_metricsByCid.dateFormatted": "asc"
+  }
+}

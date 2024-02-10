@@ -1,0 +1,55 @@
+{
+    "dimensions": [
+      "stg_another_provider_Intent.intentCategoryName",
+      "stg_another_provider_IntentParent.suggestionText",
+      "stg_another_provider_Intent.nextLevelDetail",
+      "stg_another_provider_Customer.cCustomerNameNotFixed",
+      "stg_another_provider_Community.cCommunityNameNotFixed",
+      "stg_another_provider_AppUser.personNotFixed",
+      "stg_another_provider_IntentResponse.responseText",
+      "bus_another_provider_CustomerCustomResponse.flagged",
+      "bus_another_provider_CustomerCustomResponse.frozen",
+      "bus_another_provider_CustomerCustomResponse.reviewed",
+      "bus_another_provider_CustomerCustomResponse.active"
+    ],
+    "order": [
+              [
+        "stg_another_provider_Intent.intentCategoryName",
+        "asc"
+      ],      [
+        "stg_another_provider_IntentParent.suggestionText",
+        "asc"
+      ],      [
+        "stg_another_provider_Intent.nextLevelDetail",
+        "asc"
+      ],
+      [
+        "stg_another_provider_Customer.cCustomerName",
+        "asc"
+      ],
+      [
+        "stg_another_provider_Community.cCommunityName",
+        "asc"
+      ],
+      [
+        "stg_another_provider_AppUser.person",
+        "asc"
+      ],
+      [
+        "stg_another_provider_IntentResponse.responseText",
+        "asc"
+      ]
+    ],
+            "filters": [
+            {
+                "operator": "equals",
+                "values": [
+                    "Property Amenities"
+                ],
+                "member": "stg_another_provider_Intent.intentCategoryName"
+            }
+        ],
+    "segments": [
+      "bus_another_provider_CustomerCustomResponse.defaultSegment"
+      ]
+  }

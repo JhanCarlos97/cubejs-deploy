@@ -1,0 +1,37 @@
+{
+    "dimensions": [
+      "bus_provider_leaseCharges.amount",
+      "bus_provider_leaseCharges.chargeCodeId",
+      "bus_provider_leaseCharges.chargeableType",
+      "bus_provider_leaseCharges.chargeableId",
+      "bus_provider_leaseCharges.dueDate",
+      "bus_provider_leaseCharges.leaseMoveInDate",
+      "bus_provider_leaseCharges.leaseEffectiveDate",
+      "bus_provider_leaseCharges.residentStatus",
+      "bus_provider_leaseCharges.fromDate",
+      "bus_provider_leaseCharges.throughDate",
+      "bus_provider_leaseCharges.type",
+      "bus_provider_leaseCharges.notes",
+      "bus_provider_leaseCharges.postMonth",
+      "bus_provider_leaseCharges.chargeCodeDescription"
+    ],
+      "filters": [
+        {
+        "member": "bus_provider_leaseCharges.businessUnitId",
+        "operator": "equals",
+        "values": [
+            "17c41bb2-886b-4544-9f58-f434f8f58672"
+        ]
+        },
+        {
+        "member": "bus_provider_leaseCharges.startDate",
+        "operator": "gte",
+        "values": ["2023-01-10"]
+        },
+        {
+        "member": "bus_provider_leaseCharges.endDate",
+        "operator": "lte",
+        "values": ["2025-01-31"]
+        }
+    ]
+}

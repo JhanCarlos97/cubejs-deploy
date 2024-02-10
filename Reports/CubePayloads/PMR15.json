@@ -1,0 +1,32 @@
+{
+    "dimensions": [
+      "bus_pms_agedReceivableGlobal.propName",
+      "bus_pms_agedReceivableGlobal.balanceMeasure",
+      "bus_pms_agedReceivableGlobal.currentMonthPlus500",
+      "bus_pms_agedReceivableGlobal.previousMonthPlus500",
+      "bus_pms_agedReceivableGlobal.priorPreviousMonthPlus500",
+      "bus_pms_agedReceivableGlobal.unpaidAmount",
+      "bus_pms_agedReceivableGlobal.prepaidAmount"
+    ],
+    "measures": [
+      "bus_pms_agedReceivableGlobal.unpaidCurrentMonth",
+      "bus_pms_agedReceivableGlobal.unpaidPreviousMonth",
+      "bus_pms_agedReceivableGlobal.unpaidPriorToPreviousMonth"
+    ],
+    "filters": [
+      {
+        "member": "bus_pms_agedReceivableGlobal.postDate",
+        "operator": "inDateRange",
+        "values": [
+          "1900-01-01",
+          "2023-01-01"
+        ]
+      },
+      {
+        "member": "bus_pms_agedReceivableGlobal.communityId",
+        "operator": "equals",
+        "values": ["17c41bb2-886b-4544-9f58-f434f8f58672"
+        ]
+      }
+    ]
+  }

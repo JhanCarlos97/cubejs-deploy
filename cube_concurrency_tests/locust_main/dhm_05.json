@@ -1,0 +1,30 @@
+{
+    "measures": [
+        "bus_Metrics_vendor_name.conversionRateSubmittedContactForm"
+    ],
+    "filters": [
+        {
+            "member": "bus_Metrics_vendor_name.turnDay",
+            "operator": "inDateRange",
+			"values": [
+			  "2021-07-01",
+			  "2022-08-19"
+			]
+		  },
+        {
+            "member": "bus_Metrics_vendor_name.communityId",
+            "operator": "equals",
+            "values": [
+              "0c221672-e525-4746-9e34-54c1a6b65991",
+              "b5d070af-7f18-42bd-916c-6a3074ecb393",
+              "d390f93e-7ade-47e6-9abb-136f7c7a5988",
+              "04cdfdf8-d9ff-425c-b7b2-b0325b51c320",
+              "9aec28d9-93e6-4cb1-b380-1bb2eb56b46e",
+              "c67ec221-9c8b-4ecc-b777-c1b2ff2fccc9"
+            ]
+        }
+      ],
+    "segments": [
+      "bus_Metrics_vendor_name.dhm01Segment"
+    ]
+  }

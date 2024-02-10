@@ -1,0 +1,31 @@
+{
+    "measures": [
+        "bus_iot_LockActuationsReport.actuations"
+    ],
+    "dimensions": [
+        "bus_iot_LockActuationsReport.timeOfDay2",
+        "bus_iot_LockActuationsReport.timeOfDay2Sorting"
+    ],
+    "order": {
+        "bus_iot_LockActuationsReport.timeOfDay2Sorting": "asc"
+    },
+    "filters": [
+        {
+            "operator": "equals",
+            "values": [
+                "2d9a8c6e-e19f-493c-8b4a-d0012a8535e7"
+            ],
+            "member": "bus_iot_LockActuationsReport.communityId"
+        }
+    ],
+    "timeDimensions": [
+        {
+            "dimension": "bus_iot_LockActuationsReport.timestamp",
+            "dateRange": [
+                "2023-03-01",
+                "2023-03-23"
+            ]
+        }
+    ],
+    "timezone": "UTC"
+}

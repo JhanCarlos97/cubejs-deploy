@@ -1,0 +1,30 @@
+ {
+  "dimensions": [
+     "bus_pms_onlinePaymentActivity.resident",
+     "bus_pms_onlinePaymentActivity.unitName",
+     "bus_pms_onlinePaymentActivity.paymentType",
+     "bus_pms_onlinePaymentActivity.amountSubmittedPaid",
+     "bus_pms_onlinePaymentActivity.amountProcessed",
+     "bus_pms_onlinePaymentActivity.paymentSubmissionDate",
+     "bus_pms_onlinePaymentActivity.paymentStatus",
+     "bus_pms_onlinePaymentActivity.notes"
+       ],
+    "filters": [
+        {
+            "member": "bus_pms_onlinePaymentActivity.paymentSubmissionDate",
+            "operator": "inDateRange",
+            "values": [
+                "2022-01-23",
+                "2024-01-23"
+            ]
+        },
+        {
+      "member": "bus_pms_onlinePaymentActivity.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "17c41bb2-886b-4544-9f58-f434f8f58672"
+      ]
+    }
+
+    ]
+}

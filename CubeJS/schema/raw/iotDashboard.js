@@ -1,0 +1,1 @@
+cube(`raw_iotDashboard_unitStatusReport`, {   sql: `SELECT * FROM "IOT_DEV_SCHEMA_REPORTS"."UNIT_STATUS_REPORT"`});

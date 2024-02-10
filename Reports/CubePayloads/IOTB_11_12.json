@@ -1,0 +1,25 @@
+{ "measures": [
+    "bus_iot_Aut_Vacant_Units_by_T_Control_Method.qty",
+    "bus_iot_Aut_Vacant_Units_by_T_Control_Method.prc",
+    "bus_iot_Aut_Vacant_Units_by_T_Control_Method.tempQty",
+    "bus_iot_Aut_Vacant_Units_by_T_Control_Method.tempPrc"
+    ],
+  "dimensions": [
+    "bus_iot_Aut_Vacant_Units_by_T_Control_Method.order",
+    "bus_iot_Aut_Vacant_Units_by_T_Control_Method.mode"
+
+
+  ],
+  "order": {
+    "bus_iot_Aut_Vacant_Units_by_T_Control_Method.Mode": "asc"
+  },
+  "filters": [
+    {
+      "member": "bus_iot_Aut_Vacant_Units_by_T_Control_Method.communityId",
+      "operator": "equals",
+      "values": [
+        "2406102f-05f0-4228-b196-3e6c574c67d6"
+      ]
+    }
+  ]
+}

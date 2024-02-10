@@ -1,0 +1,47 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: {{ include "cube.ingress.apiVersion" . }}
+kind: Ingress
+metadata:
+  name: {{ include "cube.fullname" . }}
+  labels: 
+    {{- include "cube.labels" . | nindent 4 }}
+    {{- if .Values.commonLabels }}
+    {{- toYaml .Values.commonLabels | nindent 4 }}
+    {{- end }}
+  {{- if or .Values.ingress.annotations .Values.commonAnnotations }}
+  annotations:
+    {{- if .Values.commonAnnotations }}
+    {{- toYaml .Values.commonAnnotations | nindent 4 }}
+    {{- end }}
+    {{- if .Values.ingress.annotations }}
+    {{- toYaml .Values.ingress.annotations | nindent 4 }}
+    {{- end }}
+  {{- end }}
+spec:
+  {{- if and .Values.ingress.ingressClassName (eq "true" (include "cube.ingress.supportsIngressClassname" .)) }}
+  ingressClassName: {{ .Values.ingress.ingressClassName | quote }}
+  {{- end }}
+  rules:
+    {{- if .Values.ingress.hostname }}
+    - host: {{ .Values.ingress.hostname }}
+      http:
+        paths:
+          - path: {{ .Values.ingress.path }}
+            {{- if eq "true" (include "cube.ingress.supportsPathType" .) }}
+            pathType: {{ .Values.ingress.pathType }}
+            {{- end }}
+            backend:
+              service:
+                name: {{ include "cube.fullname" . }}
+                port:
+                  name: http
+    {{- end }}
+  {{- if .Values.ingress.tls  }}
+  tls:
+    {{- if .Values.ingress.tls }}
+    - hosts:
+        - {{ .Values.ingress.hostname }}
+      secretName: {{ printf "%s-tls" .Values.ingress.hostname }}
+    {{- end }}
+  {{- end }}
+{{- end }}

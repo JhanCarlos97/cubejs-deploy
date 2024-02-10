@@ -1,0 +1,34 @@
+{
+    "dimensions": [
+        "bus_pms_unitAvailability.availabilityStatus",
+        "bus_pms_unitAvailability.unitName",
+        "bus_pms_unitAvailability.unitType",
+        "bus_pms_unitAvailability.bedBath",
+        "bus_pms_unitAvailability.sqft",
+        "bus_pms_unitAvailability.availableDate",
+        "bus_pms_unitAvailability.daysVacant",
+        "bus_pms_unitAvailability.ready",
+        "bus_pms_unitAvailability.currentResident",
+        "bus_pms_unitAvailability.futureResident",
+        "bus_pms_unitAvailability.applicant",     
+        "bus_pms_unitAvailability.moveInDate",
+        "bus_pms_unitAvailability.marketRent",
+        "bus_pms_unitAvailability.leaseRent",
+        "bus_pms_unitAvailability.amenityGroupName",
+        "bus_pms_unitAvailability.amenities"
+    ],
+    "filters": [
+        {
+            "member": "bus_pms_unitAvailability.businessUnitId",
+            "operator": "equals",
+            "values": ["de16e321-4469-4b44-b851-fc11bac7c0db"]
+        },
+    {
+      "member": "bus_pms_unitAvailability.transactionDate",
+      "operator": "equals",
+      "values": [
+        "2022-12-31"
+      ]
+    }
+    ]
+  }

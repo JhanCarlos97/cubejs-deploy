@@ -1,0 +1,24 @@
+{
+  "dimensions": [
+
+     "bus_pmsPetList.unit",
+     "bus_pmsPetList.resident",
+     "bus_pmsPetList.email",
+     "bus_pmsPetList.phone",
+     "bus_pmsPetList.petCategory",
+     "bus_pmsPetList.petTypeBreed",
+     "bus_pmsPetList.petName"
+       ],
+ "filters": [
+       {
+      "member": "bus_pmsPetList.businessUnitId",
+      "operator": "equals",
+      "values": [
+        "5eb85846-d8f5-4b0d-9bad-ecc4deb8d739"
+      ]
+    }
+  ],
+  "order": {
+    "bus_pmsPetList.unit": "asc"
+    }
+  }

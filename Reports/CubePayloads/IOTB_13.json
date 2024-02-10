@@ -1,0 +1,22 @@
+{
+  "measures": [
+    "bus_iot_Automation_Transmission_Errors.quantity"
+  ],
+    "dimensions": [
+    "bus_iot_Automation_Transmission_Errors.order",
+    "bus_iot_Automation_Transmission_Errors.unitStatus",
+    "bus_iot_Automation_Transmission_Errors.color"
+  ],
+    "order": {
+    "bus_iot_Automation_Transmission_Errors.order": "asc"
+  },
+  "filters": [
+    {
+      "member": "bus_iot_Automation_Transmission_Errors.communityId",
+      "operator": "equals",
+      "values": [
+        "2406102f-05f0-4228-b196-3e6c574c67d6"
+      ]
+    }
+  ]
+}

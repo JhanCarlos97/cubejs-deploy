@@ -1,0 +1,23 @@
+{
+  "measures": [
+    "bus_iot_Battery_Replacement_L.quantity"
+  ],
+  "dimensions": [
+    "bus_iot_Battery_Replacement_L.order",
+    "bus_iot_Battery_Replacement_L.batteryState",
+    "bus_iot_Battery_Replacement_L.color"
+
+  ],
+  "order": {
+    "bus_iot_Battery_Replacement_L.order": "asc"
+  },
+  "filters": [
+    {
+      "member": "bus_iot_Battery_Replacement_L.communityId",
+      "operator": "equals",
+      "values": [
+        "2406102f-05f0-4228-b196-3e6c574c67d6"
+      ]
+    }
+  ]
+}

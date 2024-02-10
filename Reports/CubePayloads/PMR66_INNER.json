@@ -1,0 +1,21 @@
+{
+    "dimensions": [
+        "bus_pms_rentableItems.reservationStartDateDummy",
+        "bus_pms_rentableItems.unitName",
+        "bus_pms_rentableItems.vehicleMakeModel",
+        "bus_pms_rentableItems.vehicleColor",
+        "bus_pms_rentableItems.licensePlate",
+        "bus_pms_rentableItems.licensePlateRegion"
+  
+    ],
+      "filters": [
+  
+                  {"member": "bus_pms_rentableItems.communityId",
+                  "operator": "equals",
+                  "values": [
+                      "cf5ae860-c81e-47eb-a7ed-562ec1c537de"
+                  ]
+                  }                  
+            
+      ]
+  }

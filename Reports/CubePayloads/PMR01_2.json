@@ -1,0 +1,48 @@
+{
+  "measures": [
+    "bus_pmsaccounting_AccrualIncome.credit",
+    "bus_pmsaccounting_AccrualIncome.charge"
+  ],
+  "dimensions": [
+    "bus_pmsaccounting_AccrualIncome.unit",
+    "bus_pmsaccounting_AccrualIncome.period",
+    "bus_pmsaccounting_AccrualIncome.postDate",
+    "bus_pmsaccounting_AccrualIncome.dueDate",
+    "bus_pmsaccounting_AccrualIncome.glNumber",
+    "bus_pmsaccounting_AccrualIncome.glName",
+    "bus_pmsaccounting_AccrualIncome.code",
+    "bus_pmsaccounting_AccrualIncome.balanceFlag"
+  ],
+   "filters": [
+    {
+      "member": "bus_pmsaccounting_AccrualIncome.communityId",
+      "operator": "equals",
+      "values": [
+        "17c41bb2-886b-4544-9f58-f434f8f58672"
+      ]
+    },
+    {
+      "member": "bus_pmsaccounting_AccrualIncome.glNumber",
+      "operator": "equals",
+      "values": [
+        "1300-0000"
+      ]
+    },
+    {
+      "member": "bus_pmsaccounting_AccrualIncome.balanceFlag",
+      "operator": "equals",
+      "values": [
+        "false"
+      ]
+    },
+    {
+      "member": "bus_pmsaccounting_AccrualIncome.postDate",
+       "operator": "inDateRange",
+          "values": [
+              "2022-10-01",
+              "2022-12-19"
+          ]
+    }
+
+  ]
+}

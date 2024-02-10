@@ -1,0 +1,60 @@
+{
+        "dimensions": [
+            "bus_another_provider_ConversationsDurationByMonth.turnYear",
+            "bus_another_provider_ConversationsDurationByMonth.turnMonth",
+            "bus_another_provider_ConversationsDurationByMonth.monthName",
+            "bus_another_provider_ConversationsDurationByMonth.dhName"
+            
+        ],
+        "measures": [
+            "bus_another_provider_ConversationsDurationByMonth.totalConversation"
+        ],
+        "order": {
+            "bus_another_provider_ConversationsDurationByMonth.turnYear": "asc",
+            "bus_another_provider_ConversationsDurationByMonth.turnMonth": "asc",
+            "bus_another_provider_ConversationsDurationByMonth.dhName": "asc"
+        },
+        "filters": [
+            {
+                "member": "bus_another_provider_ConversationsDurationByMonth.turnDay",
+                "operator": "inDateRange",
+                "values": [
+                    "2021-07-01",
+                    "2022-08-19"
+                ]
+            },
+            {
+                "member": "bus_another_provider_ConversationsDurationByMonth.communityId",
+                "operator": "equals",
+                "values": [
+                    "c9b21c8e-b964-4f8e-9f21-221dac4c9342",
+                    "5a42560a-bc48-4b29-995a-36940a518b5b",
+                    "03e908a1-507f-4c74-b282-e643a5838b5f",
+                    "c9402a6a-82d0-4784-81b4-e14ddfc90862",
+                    "c67ec221-9c8b-4ecc-b777-c1b2ff2fccc9",
+                    "36e0f361-b9bc-4289-acb7-e6f136913c70"
+                ]
+            },
+            {
+                "member": "bus_another_provider_ConversationsDurationByMonth.convTurnsPlaceholder",
+                "operator": "gt",
+                "values": ["1"]
+            },
+            {
+                "member": "bus_another_provider_ConversationsDurationByMonth.dhNamePlaceholder",
+                "operator": "equals",
+                "values": ["1"]
+            },
+            {
+                "member": "bus_another_provider_ConversationsDurationByMonth.languagePlaceholder",
+                "operator": "equals",
+                "values": ["1"]
+            },
+            {
+                "member": "bus_another_provider_ConversationsDurationByMonth.submittedContactFormPlaceholder",
+                "operator": "equals",
+                "values": ["true"]
+            }
+        ]
+    
+}

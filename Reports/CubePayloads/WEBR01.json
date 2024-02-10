@@ -1,0 +1,31 @@
+{
+  "measures": [
+    "bus_ga_searchConsole.clicks",
+    "bus_ga_searchConsole.impressions",
+    "bus_ga_searchConsole.avgCtrNoDecimals",
+      "bus_ga_searchConsole.avgPosition2Decimals"
+    ],
+    "dimensions": [
+      "bus_ga_searchConsole.query"
+    ],
+    "filters": [
+      {
+        "member": "bus_ga_searchConsole.dateFormatted",
+        "operator": "inDateRange",
+        "values": [
+          "2023-10-10",
+          "2023-10-22"
+        ]
+      },
+      {
+        "member": "raw_web_hostnameMapping.communityId",
+        "operator": "equals",
+        "values": [
+          "aac9b18a-f1bd-4bad-a39a-2e8364841ebc"
+        ]
+      }
+    ],
+    "order": {
+        "bus_ga_searchConsole.query": "asc"
+    }
+  }

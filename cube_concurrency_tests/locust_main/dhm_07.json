@@ -1,0 +1,36 @@
+{
+  "dimensions": [
+      "bus_ConversationsByTimeOfDay_vendor_name_Metrics.order",
+      "bus_ConversationsByTimeOfDay_vendor_name_Metrics.category"
+  ],
+  "measures": [
+      "bus_ConversationsByTimeOfDay_vendor_name_Metrics.quantity",
+      "bus_ConversationsByTimeOfDay_vendor_name_Metrics.totalPercentageQuantity"
+  ],
+  "order": {
+      "bus_ConversationsByTimeOfDay_vendor_name_Metrics.order": "asc",
+      "bus_ConversationsByTimeOfDay_vendor_name_Metrics.category": "asc"
+  },
+  "filters": [
+      {
+          "member": "bus_ConversationsByTimeOfDay_vendor_name_Metrics.dt",
+          "operator": "inDateRange",
+          "values": [
+              "2021-08-15",
+              "2022-08-16"
+          ]
+      },
+      {
+          "member": "bus_ConversationsByTimeOfDay_vendor_name_Metrics.communityId",
+          "operator": "equals",
+          "values": [
+            "c7320976-0123-491c-b84e-1f331e7939cc",
+            "03e908a1-507f-4c74-b282-e643a5838b5f",
+            "128a0a6c-d497-4be8-9b27-7ae67e7fde4d",
+            "4dc57226-06af-4c2f-8a60-9d141831946c",
+            "cfae599d-f9eb-4bb2-94aa-7e811478acd9",
+            "97645551-d910-4704-8cf1-1e1f7ad7ab0c"
+          ]
+      }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+    "dimensions": [
+        "bus_ConversationsDurationByMonth_vendor_name_Metrics.turnYear",
+        "bus_ConversationsDurationByMonth_vendor_name_Metrics.turnMonth",
+        "bus_ConversationsDurationByMonth_vendor_name_Metrics.monthName",
+        "bus_ConversationsDurationByMonth_vendor_name_Metrics.dhName"
+    ],
+    "measures": [
+        "bus_ConversationsDurationByMonth_vendor_name_Metrics.averageConversationDuration",
+        "bus_ConversationsDurationByMonth_vendor_name_Metrics.totalConversation",
+        "bus_ConversationsDurationByMonth_vendor_name_Metrics.totalPartition"
+    ],
+    "order": {
+        "bus_ConversationsDurationByMonth_vendor_name_Metrics.turnYear": "asc",
+        "bus_ConversationsDurationByMonth_vendor_name_Metrics.turnMonth": "asc",
+        "bus_ConversationsDurationByMonth_vendor_name_Metrics.dhName": "asc"
+    },
+    "filters": [
+        {
+            "member": "bus_ConversationsDurationByMonth_vendor_name_Metrics.turnDay",
+            "operator": "inDateRange",
+            "values": [
+                "2021-07-01",
+                "2022-08-19"
+            ]
+        },
+        {
+            "member": "bus_ConversationsDurationByMonth_vendor_name_Metrics.communityId",
+            "operator": "equals",
+            "values": [
+                "1ee5a168-7247-4009-8c75-8c4f905f97c8",
+                "b5d070af-7f18-42bd-916c-6a3074ecb393",
+                "4dc57226-06af-4c2f-8a60-9d141831946c",
+                "9aec28d9-93e6-4cb1-b380-1bb2eb56b46e",
+                "03e09027-2f83-459d-becd-c88bbb428255",
+                "aad83553-179f-4763-aa41-5362b45c2d20"
+            ]
+        },
+        {
+            "member": "bus_ConversationsDurationByMonth_vendor_name_Metrics.convTurnsPlaceholder",
+            "operator": "gt",
+            "values": ["1"]
+        },
+        {
+            "member": "bus_ConversationsDurationByMonth_vendor_name_Metrics.dhNamePlaceholder",
+            "operator": "equals",
+            "values": ["1"]
+        },
+        {
+            "member": "bus_ConversationsDurationByMonth_vendor_name_Metrics.languagePlaceholder",
+            "operator": "equals",
+            "values": ["1"]
+        }
+    ]
+}

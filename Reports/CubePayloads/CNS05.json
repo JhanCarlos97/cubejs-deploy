@@ -1,0 +1,37 @@
+{
+    "dimensions": [
+      "bus_provider_recurrentLeaseCharges.amount",
+      "bus_provider_recurrentLeaseCharges.chargeCodeId",
+      "bus_provider_recurrentLeaseCharges.chargeableType",
+      "bus_provider_recurrentLeaseCharges.chargeableId",
+      "bus_provider_recurrentLeaseCharges.dueDate",
+      "bus_provider_recurrentLeaseCharges.leaseMoveInDate",
+      "bus_provider_recurrentLeaseCharges.leaseEffectiveDate",
+      "bus_provider_recurrentLeaseCharges.residentStatus",
+      "bus_provider_recurrentLeaseCharges.startDate",
+      "bus_provider_recurrentLeaseCharges.endDate",
+      "bus_provider_recurrentLeaseCharges.frequency",
+      "bus_provider_recurrentLeaseCharges.type",
+      "bus_provider_recurrentLeaseCharges.notes",
+      "bus_provider_recurrentLeaseCharges.chargeCodeDescription"
+    ],
+      "filters": [
+        {
+        "member": "bus_provider_recurrentLeaseCharges.businessUnitId",
+        "operator": "equals",
+        "values": [
+            "17c41bb2-886b-4544-9f58-f434f8f58672"
+        ]
+        },
+        {
+        "member": "bus_provider_recurrentLeaseCharges.startDate",
+        "operator": "gte",
+        "values": ["2022-11-01"]
+        },
+        {
+        "member": "bus_provider_recurrentLeaseCharges.endDate",
+        "operator": "lte",
+        "values": ["2025-10-10"]
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: pgsql-cron-job
+spec:
+  concurrencyPolicy: Allow
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: pgsql-cron-job
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - args:
+            - -c
+            - psql postgres://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST:$DATABASE_PORT/$DATABASE_DB
+            - DELETE FROM stream_stats WHERE created_at < now() - interval '7 days';
+            - DELETE FROM jobs WHERE created_at < now() - interval '7 days';
+            - DELETE FROM attempts WHERE created_at < now() - interval '7 days';
+            - VACUUM FULL;
+            command:
+            - /bin/sh
+            env:
+            - name: DATABASE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: DATABASE_HOST
+                  name: airbyte-airbyte-env
+            - name: DATABASE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: DATABASE_PORT
+                  name: airbyte-airbyte-env
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: DATABASE_PASSWORD
+                  name: airbyte-airbyte-secrets
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  key: DATABASE_USER
+                  name: airbyte-airbyte-secrets
+            - name: DATABASE_DB
+              valueFrom:
+                configMapKeyRef:
+                  key: DATABASE_DB
+                  name: airbyte-airbyte-env
+            # - name: POSTGRES_PASSWORD #Add this for prod
+            #  value: password
+            image: postgres
+            imagePullPolicy: Always
+            name: pgsql-cron-job
+            resources: {}
+            terminationMessagePath: /dev/termination-log
+            terminationMessagePolicy: File
+          dnsPolicy: ClusterFirst
+          restartPolicy: Never
+          schedulerName: default-scheduler
+          securityContext: {}
+          terminationGracePeriodSeconds: 30
+  schedule: 0 4 * * 1
+  successfulJobsHistoryLimit: 3
+  suspend: false
+status: {}

@@ -1,0 +1,17 @@
+{
+  "measures": [
+    "bus_iot_Access_and_Keys_Key_Delivery_Error.count"
+  ],
+  "order": {
+    "bus_iot_Access_and_Keys_Key_Delivery_Error.count": "asc"
+  },
+  "filters": [
+    {
+      "member": "bus_iot_Access_and_Keys_Key_Delivery_Error.communityId",
+      "operator": "equals",
+      "values": [
+        "2406102f-05f0-4228-b196-3e6c574c67d6"
+      ]
+    }
+  ]
+}

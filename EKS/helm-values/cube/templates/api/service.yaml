@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "cube.fullname" . }}
+  labels:
+    app.kubernetes.io/component: api
+    {{- include "cube.labels" . | nindent 4 }}
+    {{- if .Values.commonLabels }}
+    {{- toYaml .Values.commonLabels | nindent 4 }}
+    {{- end }}
+  {{- if .Values.commonAnnotations }}
+  annotations:
+    {{- toYaml .Values.commonAnnotations | nindent 4 }}
+  {{- end }}
+spec:
+  ports:
+    - name: http
+      port: {{ .Values.config.apiPort }}
+      targetPort: http
+    {{- if .Values.config.sqlPort }}
+    - name: sql
+      port: {{ .Values.config.sqlPort }}
+      targetPort: sql
+    {{- end}}
+    {{- if .Values.config.pgSqlPort }}
+    - name: pgsql
+      port: {{ .Values.config.pgSqlPort }}
+      targetPort: pgsql
+    {{- end}}
+  selector:
+    app.kubernetes.io/component: api
+    {{- include "cube.selectorLabels" . | nindent 4 }}

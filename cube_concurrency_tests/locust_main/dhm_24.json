@@ -1,0 +1,38 @@
+{
+    "measures": [
+      "bus_ConversationsByPlatformUnion_Metrics.totalFormSubmissions",
+      "bus_ConversationsByPlatformUnion_Metrics.totalConversation",
+      "bus_ConversationsByPlatformUnion_Metrics.conversionRateForm"
+  ],
+  "dimensions": [
+      "bus_ConversationsByPlatformUnion_Metrics.category"
+  ],
+    "filters": [
+      {
+        "member": "bus_ConversationsByPlatformUnion_Metrics.communityId",
+        "operator": "equals",
+        "values": [
+          "03e908a1-507f-4c74-b282-e643a5838b5f",
+          "544eb596-c85e-4ee0-a37d-49d7552b6780",
+          "530f6b82-4b5d-4d61-bbc8-8dbafc47a17f",
+          "ebe33466-5a4a-4a3e-8e44-bd7ae24ddbfa",
+          "70f6627e-918b-4dba-8ef7-484b055bbfc7",
+          "256907f4-de63-4bcc-b5f3-586b7f8feced"
+        ]
+      },
+      {
+        "member": "bus_ConversationsByPlatformUnion_Metrics.turnDay",
+        "operator": "inDateRange",
+        "values": [
+          "2021-07-01",
+          "2022-08-19"
+        ]
+      }
+    ],
+    "order": [
+      [
+        "bus_ConversationsByPlatformUnion_Metrics.totalConversation",
+        "desc"
+      ]
+    ]
+}

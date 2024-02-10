@@ -1,0 +1,24 @@
+{
+        "measures": [
+            "bus_web_metricsByCid.scheduledTourConversionRate",
+            "bus_web_metricsByCid.contactFormSubmissionConversionRate",
+            "bus_web_metricsByCid.applicationConversionRate"
+        ],
+        "filters": [
+            {
+                "member": "bus_web_metricsByCid.dateFormatted",
+                "operator": "inDateRange",
+                "values": [
+                    "2023-04-01",
+                    "2023-04-10"
+                ]
+            },
+            {
+                "member": "raw_web_hostnameMapping.communityId",
+                "operator": "equals",
+                "values": [
+                    "aac9b18a-f1bd-4bad-a39a-2e8364841ebc"
+                ]
+            }
+        ]
+    }

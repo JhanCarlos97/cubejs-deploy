@@ -1,0 +1,21 @@
+{
+  "dimensions": [
+    "stg_another_provider_Intent.intentCategoryName"
+  ],
+  "order": [
+    [
+      "stg_another_provider_Intent.intentCategoryName",
+      "asc"
+    ]
+  ],
+  "filters": [
+    {
+      "member": "stg_another_provider_CommunityIntent.communityId",
+      "operator": "equals",
+      "values": [
+        "d67cd7e9-3cc3-4474-a7f8-97d348f2a3d5"
+      ]
+    }
+  ],
+  "limit": 50000
+}

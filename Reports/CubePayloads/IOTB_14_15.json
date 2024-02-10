@@ -1,0 +1,21 @@
+{
+    "dimensions": [
+      "bus_iot_Device_Comm_Failures.order",
+      "bus_iot_Device_Comm_Failures.device",
+      "bus_iot_Device_Comm_Failures.color"
+
+    ],
+  "measures": [
+    "bus_iot_Device_Comm_Failures.value"
+
+  ],
+  "filters": [
+    {
+      "member": "bus_iot_Device_Comm_Failures.communityId",
+      "operator": "equals",
+      "values": [
+        "2406102f-05f0-4228-b196-3e6c574c67d6"
+      ]
+    }
+  ]
+}

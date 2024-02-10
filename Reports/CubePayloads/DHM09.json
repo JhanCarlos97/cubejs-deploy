@@ -1,0 +1,37 @@
+{
+    "dimensions": [
+        "bus_another_provider_ConversationsByTimeOfDay.order",
+        "bus_another_provider_ConversationsByTimeOfDay.category"
+    ],
+    "measures": [
+        "bus_another_provider_ConversationsByTimeOfDay.totalForm",
+        "bus_another_provider_ConversationsByTimeOfDay.quantity",
+        "bus_another_provider_ConversationsByTimeOfDay.conversionRateForm"
+    ],
+    "order": {
+        "bus_another_provider_ConversationsByTimeOfDay.order": "asc",
+        "bus_another_provider_ConversationsByTimeOfDay.category": "asc"
+    },
+    "filters": [
+        {
+            "member": "bus_another_provider_ConversationsByTimeOfDay.dt",
+            "operator": "inDateRange",
+            "values": [
+                "2021-08-15",
+                "2022-08-16"
+            ]
+        },
+        {
+            "member": "bus_another_provider_ConversationsByTimeOfDay.communityId",
+            "operator": "equals",
+            "values": [
+                "0c221672-e525-4746-9e34-54c1a6b65991",
+                "16d0ddde-7fbe-4824-b29c-37036f238483",
+                "69774f10-4746-47c1-bd29-97836a09fcab",
+                "c9402a6a-82d0-4784-81b4-e14ddfc90862",
+                "55672ef1-a7b2-4f07-ad1a-77b80a0a85de",
+                "c7320976-0123-491c-b84e-1f331e7939cc"
+            ]
+        }
+    ]
+}

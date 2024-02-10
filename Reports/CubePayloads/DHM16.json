@@ -1,0 +1,37 @@
+{
+    "measures": [
+      "bus_another_provider_MetricsTurns.count",
+      "bus_another_provider_MetricsTurns.percentage"
+    ],
+    "filters": [
+      {
+        "member": "bus_another_provider_MetricsTurns.communityId",
+        "operator": "equals",
+        "values": [
+          "c9b21c8e-b964-4f8e-9f21-221dac4c9342",
+          "cfae599d-f9eb-4bb2-94aa-7e811478acd9",
+          "e8848f98-f3df-4d3e-88ce-ecd10f6fccd6",
+          "7f41f529-7704-4698-96e2-4836ad3f1cb7",
+          "45f37fa3-17b5-4b6f-9c23-01c8378212da",
+          "a3f41d5d-4159-40a8-a2d9-bc03140b862b"
+        ]
+      },
+      {
+        "member": "bus_another_provider_MetricsTurns.turnDay",
+        "operator": "inDateRange",
+        "values": [
+          "2021-07-01",
+          "2022-08-16"
+        ]
+      }
+    ],
+    "dimensions": [
+      "bus_another_provider_MetricsTurns.inputType"
+    ],
+    "order": {
+      "bus_another_provider_MetricsTurns.count": "desc"
+    },
+    "segments": [
+      "bus_another_provider_MetricsTurns.dhm16Segment"
+    ]
+  }

@@ -1,0 +1,37 @@
+{
+  "measures": [
+    "bus_MostPopularTopics_Metrics.percentage"
+  ],
+  "dimensions": [
+    "bus_MostPopularTopics_Metrics.rn",
+    "bus_MostPopularTopics_Metrics.topic",
+    "bus_MostPopularTopics_Metrics.quantity"
+  ],
+  "filters": [
+    {
+      "member": "bus_MostPopularTopics_Metrics.communityId",
+      "operator": "equals",
+      "values": ["1ee5a168-7247-4009-8c75-8c4f905f97c8",
+      "b5d070af-7f18-42bd-916c-6a3074ecb393",
+      "4617c49c-814c-4725-aad4-a90c47244432",
+      "2d9a8c6e-e19f-493c-8b4a-d0012a8535e7",
+      "1d3a050d-388e-4c58-adee-d81123982b63",
+      "36e0f361-b9bc-4289-acb7-e6f136913c70"]
+    },
+   {
+    "member": "bus_MostPopularTopics_Metrics.turnDay",
+    "operator": "inDateRange",
+          "values": [
+            "2021-07-01",
+            "2022-08-16"
+          ]
+    },
+  {
+    "member": "bus_MostPopularTopics_Metrics.rn",
+    "operator": "lte",
+          "values": [
+            "10"
+          ]
+    }
+  ]
+} 

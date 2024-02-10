@@ -1,0 +1,27 @@
+{
+    "dimensions": [
+        "bus_iot_accessReport.name",
+        "bus_iot_accessReport.email",
+        "bus_iot_accessReport.type",
+        "bus_iot_accessReport.company",
+        "bus_iot_accessReport.credentialTypes",
+        "bus_iot_accessReport.credentialHistory",
+        "bus_iot_accessReport.unit",
+        "bus_iot_accessReport.occupied",
+        "bus_iot_accessReport.companyPasses",
+        "bus_iot_accessReport.startDate",
+        "bus_iot_accessReport.endDate"
+    ],
+    "order": {
+        "bus_iot_accessReport.name": "asc"
+    },
+    "filters": [
+        {
+            "operator": "equals",
+            "values": [
+                "2d9a8c6e-e19f-493c-8b4a-d0012a8535e7"
+            ],
+            "member": "bus_iot_accessReport.communityId"
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "dimensions": [
+      "bus_Transcript_vendor_name.turnTime",
+      "bus_Transcript_vendor_name.conversationsId",
+      "stg_TurnsData_vendor_name_Transcript.duration",
+      "stg_TurnsData_vendor_name_Transcript.total",
+      "bus_Transcript_vendor_name.hourMinute",
+      "bus_Transcript_vendor_name.userRequest",
+      "bus_Transcript_vendor_name.historicResponseText",
+      "bus_Transcript_vendor_name.isFacePresent",
+      "bus_Transcript_vendor_name.intentDetectionConfidence",
+      "stg_TurnsData_vendor_name_Transcript.conversationsId"
+    ],
+    "order": [
+      [
+        "bus_Transcript_vendor_name.conversationsId",
+        "asc"
+      ],
+      [
+        "bus_Transcript_vendor_name.turnTime",
+        "asc"
+      ]
+    ],
+    "filters": [
+      {
+        "member": "bus_Transcript_vendor_name.communityId",
+        "operator": "equals",
+        "values": [
+          "d67cd7e9-3cc3-4474-a7f8-97d348f2a3d5"
+        ]
+      },
+      {
+        "member": "bus_Transcript_vendor_name.turnTime",
+        "operator": "inDateRange",
+        "values": [
+          "2022-07-01",
+          "2022-07-06"
+        ]
+      }
+    ],
+    "segments": [
+      "bus_Transcript_vendor_name.innerJoinSegment"
+    ],
+    "ungrouped": true
+  }

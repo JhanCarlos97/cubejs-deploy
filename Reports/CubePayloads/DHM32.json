@@ -1,0 +1,44 @@
+{
+  "measures": [
+    "bus_another_provider_ConversationsRate.quantityForm",
+    "bus_another_provider_ConversationsRate.totalConversation",
+    "bus_another_provider_ConversationsRate.totalForms"
+  ],
+  "dimensions": [
+    "bus_another_provider_ConversationsRate.turnYear",
+    "bus_another_provider_ConversationsRate.turnMonth",
+    "bus_another_provider_ConversationsRate.monthName"
+  ],
+  "filters": [
+    {
+      "member": "bus_another_provider_ConversationsRate.communityId",
+      "operator": "equals",
+      "values": [
+        "4756b06f-fefb-4348-99b7-786e010b11f8",
+        "0c221672-e525-4746-9e34-54c1a6b65991",
+        "98fb8529-7a06-4398-961d-7696b872bb82",
+        "16d0ddde-7fbe-4824-b29c-37036f238483",
+        "4d43cedd-1906-4b10-bbbd-040c747368cf",
+        "bd8a9748-7c47-4b25-8428-d71ce20f5a73"
+      ]
+    },
+    {
+      "member": "bus_another_provider_ConversationsRate.dt",
+      "operator": "inDateRange",
+      "values": [
+        "2021-07-01, ",
+        "2022-08-19"
+      ]
+    }
+  ],
+  "order": [
+    [
+      "bus_another_provider_ConversationsRate.turnYear",
+      "asc"
+    ],
+    [
+      "bus_another_provider_ConversationsRate.turnMonth",
+      "asc"
+    ]
+  ]
+}

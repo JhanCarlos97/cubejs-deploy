@@ -1,0 +1,25 @@
+{
+  "dimensions": [
+    "bus_iot_Resident_Summary.order",
+    "bus_iot_Resident_Summary.eventType",
+    "bus_iot_Resident_Summary.value",
+    "bus_iot_Resident_Summary.color"
+  ],
+
+  "filters": [
+    {
+      "member": "bus_iot_Resident_Summary.communityId",
+      "operator": "equals",
+      "values": [
+        "2406102f-05f0-4228-b196-3e6c574c67d6"
+      ]
+    }
+  ],
+
+  "order": [
+    [
+      "bus_iot_Resident_Summary.order",
+      "asc"
+    ]
+  ]
+}

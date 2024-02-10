@@ -1,0 +1,40 @@
+{
+    "dimensions": [
+        ],
+    "order": [
+    ],
+    "segments": [
+      "bus_pms_agedReceivable.negativeBalance"
+    ],
+    "measures": [
+      "bus_pms_agedReceivable.unpaidZero",
+      "bus_pms_agedReceivable.unpaidThirty",
+      "bus_pms_agedReceivable.unpaidSixty",
+      "bus_pms_agedReceivable.unpaidNinety",
+      "bus_pms_agedReceivable.prepaidAmountMeasure",
+      "bus_pms_agedReceivable.balanceMeasure"
+    ],
+    "filters": [
+      {
+        "member": "bus_pms_agedReceivable.postDate",
+        "operator": "inDateRange",
+        "values": [
+          "1900-01-01",
+          "2023-01-01"
+        ]
+      },
+      {
+        "member": "bus_pms_agedReceivable.businessUnitId",
+        "operator": "equals",
+        "values": ["d7c52c89-2bdc-4a9d-a2ce-123aa4fcc62d"
+        ]
+      },
+    {
+      "member": "bus_pms_agedReceivable.past",
+      "operator": "equals",
+      "values": [
+        "false"
+      ]
+    }
+    ]
+  }

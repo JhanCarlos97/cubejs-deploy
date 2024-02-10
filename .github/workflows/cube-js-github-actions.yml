@@ -1,0 +1,265 @@
+name: Deploy CubeJS
+
+on:
+  push:
+    paths:
+      - 'CubeJS/schema/**'
+      - 'CubeJS/cube.js'
+      - '.github/workflows/cube-js-github-actions.yml'
+    branches:
+      - master
+      - develop
+      - staging
+
+jobs:
+  deploy-to-eks-dev:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    env:
+      AWS_REGION: ${{ secrets.DEV_AWS_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
+      PATH_TO_PRIVATE_KEY: ${{ secrets.DEV_PATH_TO_PRIVATE_KEY_EC2_EKS }}
+      PATH_TO_CREDENTIALS: ${{ secrets.DEV_PATH_TO_CREDENTIALS_EC2_EKS }}
+      AWS_ACCOUNT: AWS_ACCOUNT_NUMBER
+      SG_NAME: SECURITY_GROUP_NAME
+    steps:
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: ${{env.AWS_REGION}}
+
+      - name: Install kubectl
+        run: |
+          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get Github action IP
+        id: ip
+        uses: haythem/public-ip@v1.2
+
+      - name: Add Github Actions IP to Security group
+        run: |
+          aws ec2 authorize-security-group-ingress --group-id ${{env.SG_NAME}} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+        
+      - name: Deploy to EKS
+        run: |
+
+          echo "Getting SSM parameters"
+          AWS_PRIVATE_KEY=$(aws secretsmanager get-secret-value --secret-id ${{env.PATH_TO_PRIVATE_KEY}} --query SecretString)
+          CREDENTIALS=$(aws secretsmanager get-secret-value --secret-id ${{env.PATH_TO_CREDENTIALS}} --query SecretString --output text | jq -r '.')
+          PUBLIC_USERNAME=$(echo $CREDENTIALS | jq -r '.USERNAME_PUBLIC')
+          PUBLIC_HOSTNAME=$(echo $CREDENTIALS | jq -r '.HOSTNAME_PUBLIC')
+          PRIVATE_USERNAME=$(echo $CREDENTIALS | jq -r '.USERNAME_PRIVATE')
+          PRIVATE_HOSTNAME=$(echo $CREDENTIALS | jq -r '.HOSTNAME_PRIVATE')
+
+          echo "Secrets retrieved"
+
+          echo -e "$AWS_PRIVATE_KEY" | sed 's/^"//' | sed 's/"$//' > private_key.pem && chmod 600 private_key.pem
+
+          echo "Private key saved"
+
+          ssh -o StrictHostKeyChecking=no -i private_key.pem $PUBLIC_USERNAME@$PUBLIC_HOSTNAME "sudo rm -r schema/"
+
+          scp -o StrictHostKeyChecking=no -i private_key.pem -r ./CubeJS/schema/ $PUBLIC_USERNAME@$PUBLIC_HOSTNAME:~/
+
+          echo "Folder copied to public ec2"
+
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME ssh -i cube-dev.pem $PRIVATE_USERNAME@$PRIVATE_HOSTNAME "sudo rm -r -f schema/"
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME ssh -i cube-dev.pem $PRIVATE_USERNAME@$PRIVATE_HOSTNAME "sudo rm -r -f efs-mount-point/schema/"
+          
+          echo "Folders removed in private ec2"
+
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME scp -i cube-dev.pem -r schema/ $PRIVATE_USERNAME@$PRIVATE_HOSTNAME:~/
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME ssh -i cube-dev.pem $PRIVATE_USERNAME@$PRIVATE_HOSTNAME sudo cp -r schema/ efs-mount-point/
+          
+          echo "Folder formatted in private ec2"
+
+          echo "Sync files successed"
+
+          aws eks --region $AWS_REGION update-kubeconfig --name company-data-eks-dev-cluster
+
+          kubectl delete secret/cube-api-secrets --namespace=cube
+
+          kubectl delete --all pods --namespace=cube --context=arn:aws:eks:${{env.AWS_REGION}}:${{env.AWS_ACCOUNT}}:cluster/company-data-eks-dev-cluster
+
+      - name: Remove Github Actions IP from security group
+        run: |
+          aws ec2 revoke-security-group-ingress --group-id ${{env.SG_NAME}} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+
+
+
+
+  deploy-to-eks-stg:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/staging'
+    env:
+      AWS_REGION: ${{ secrets.STG_AWS_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.STG_AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.STG_AWS_SECRET_ACCESS_KEY }}
+      PATH_TO_PRIVATE_KEY: ${{ secrets.STG_PATH_TO_PRIVATE_KEY}}
+      PATH_TO_CREDENTIALS_PUBLIC: ${{secrets.STG_PATH_TO_CREDENTIALS_PUBLIC}}
+      PATH_TO_CREDENTIALS_PRIVATE: ${{secrets.STG_PATH_TO_CREDENTIALS_PRIVATE}}
+      AWS_ACCOUNT: AWS_ACCOUNT_NUMBER
+    steps:
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: ${{env.AWS_REGION}}
+
+      - name: Install kubectl
+        run: |
+          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get Github action IP
+        id: ip
+        uses: haythem/public-ip@v1.2
+
+      - name: Deploy to EKS
+        run: |
+          echo "Getting SSM parameters"
+
+          AWS_PRIVATE_KEY=$(aws secretsmanager get-secret-value --secret-id ${{env.PATH_TO_PRIVATE_KEY}} --query SecretString)
+          AWS_PRIVATE_KEY=$(aws secretsmanager get-secret-value --secret-id ${{env.PATH_TO_PRIVATE_KEY}} --query SecretString)
+          PUBLIC_CREDENTIALS=$(aws secretsmanager get-secret-value --secret-id ${{env.PATH_TO_CREDENTIALS_PUBLIC}} --query SecretString --output text | jq -r '.')
+          PUBLIC_USERNAME=$(echo $PUBLIC_CREDENTIALS | jq -r '.USERNAME')
+          PUBLIC_HOSTNAME=$(echo $PUBLIC_CREDENTIALS | jq -r '.HOSTNAME')
+          echo "SG_ID=$(echo $PUBLIC_CREDENTIALS | jq -r '.SG_ID')" >> "$GITHUB_ENV"
+          SG_ID=$(echo $PUBLIC_CREDENTIALS | jq -r '.SG_ID')
+          PRIVATE_CREDENTIALS=$(aws secretsmanager get-secret-value --secret-id ${{env.PATH_TO_CREDENTIALS_PRIVATE}} --query SecretString --output text | jq -r '.')
+          PRIVATE_USERNAME=$(echo $PRIVATE_CREDENTIALS | jq -r '.USERNAME')
+          PRIVATE_HOSTNAME=$(echo $PRIVATE_CREDENTIALS | jq -r '.HOSTNAME')
+
+          echo "Secrets retrieved"
+
+          echo "Adding SGR"
+
+          aws ec2 authorize-security-group-ingress --group-id $SG_ID --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+
+          echo -e "$AWS_PRIVATE_KEY" | sed 's/^"//' | sed 's/"$//' > private_key.pem && chmod 600 private_key.pem
+
+          echo "Private key saved"
+
+          ssh -o StrictHostKeyChecking=no -i private_key.pem $PUBLIC_USERNAME@$PUBLIC_HOSTNAME "sudo rm -r -f schema/"
+
+          scp -o StrictHostKeyChecking=no -i private_key.pem -r ./CubeJS/schema/ $PUBLIC_USERNAME@$PUBLIC_HOSTNAME:~/
+
+          echo "Folder copied to public ec2"
+
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME ssh -i cube_stg.p8 $PRIVATE_USERNAME@$PRIVATE_HOSTNAME "sudo rm -r -f schema/"
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME ssh -i cube_stg.p8 $PRIVATE_USERNAME@$PRIVATE_HOSTNAME "sudo rm -r -f efs-mount-point/schema/"
+          
+          echo "Folders removed in private ec2"
+
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME scp -i cube_stg.p8 -r schema/ $PRIVATE_USERNAME@$PRIVATE_HOSTNAME:~/
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME ssh -i cube_stg.p8 $PRIVATE_USERNAME@$PRIVATE_HOSTNAME sudo cp -r schema/ efs-mount-point/
+          
+          echo "Folder formatted in private ec2"
+
+          echo "Sync files successed"
+
+          aws eks --region $AWS_REGION update-kubeconfig --name company-eks-data-dev
+
+          kubectl delete --all pods --namespace=cube --context=arn:aws:eks:${{env.AWS_REGION}}:${{env.AWS_ACCOUNT}}:cluster/company-eks-data-dev
+
+      - name: Remove Github Actions IP from security group
+        run: |
+          aws ec2 revoke-security-group-ingress --group-id $SG_ID --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+
+  deploy-to-eks-prd:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    env:
+      AWS_REGION: ${{ secrets.PRD_AWS_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.PRD_AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.PRD_AWS_SECRET_ACCESS_KEY }}
+      PATH_TO_PRIVATE_KEY: ${{ secrets.PRD_PATH_TO_PRIVATE_KEY}}
+      PATH_TO_CREDENTIALS_PUBLIC: ${{secrets.PRD_PATH_TO_CREDENTIALS_PUBLIC}}
+      PATH_TO_CREDENTIALS_PRIVATE: ${{secrets.PRD_PATH_TO_CREDENTIALS_PRIVATE}}
+      AWS_ACCOUNT: AWS_ACCOUNT_NUMBER
+      CLUSTER_NAME: company-data-prod
+      CLUSTER_NAMESPACE: cube
+      PRIVATE_KEY_NAME: cube_prd.p8
+
+    steps:
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: ${{env.AWS_REGION}}
+
+    
+      - name: Install kubectl
+        run: |
+          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/
+  
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get Github action IP
+        id: ip
+        uses: haythem/public-ip@v1.2
+
+      - name: Deploy to EKS
+        run: |
+          echo "Getting SSM parameters"
+
+          AWS_PRIVATE_KEY=$(aws secretsmanager get-secret-value --secret-id ${{env.PATH_TO_PRIVATE_KEY}} --query SecretString)
+          AWS_PRIVATE_KEY=$(aws secretsmanager get-secret-value --secret-id ${{env.PATH_TO_PRIVATE_KEY}} --query SecretString)
+          PUBLIC_CREDENTIALS=$(aws secretsmanager get-secret-value --secret-id ${{env.PATH_TO_CREDENTIALS_PUBLIC}} --query SecretString --output text | jq -r '.')
+          PUBLIC_USERNAME=$(echo $PUBLIC_CREDENTIALS | jq -r '.USERNAME')
+          PUBLIC_HOSTNAME=$(echo $PUBLIC_CREDENTIALS | jq -r '.HOSTNAME')
+          echo "SG_ID=$(echo $PUBLIC_CREDENTIALS | jq -r '.SG_ID')" >> "$GITHUB_ENV"
+          SG_ID=$(echo $PUBLIC_CREDENTIALS | jq -r '.SG_ID')
+          PRIVATE_CREDENTIALS=$(aws secretsmanager get-secret-value --secret-id ${{env.PATH_TO_CREDENTIALS_PRIVATE}} --query SecretString --output text | jq -r '.')
+          PRIVATE_USERNAME=$(echo $PRIVATE_CREDENTIALS | jq -r '.USERNAME')
+          PRIVATE_HOSTNAME=$(echo $PRIVATE_CREDENTIALS | jq -r '.HOSTNAME')
+
+          echo "Secrets retrieved"
+
+          echo "Adding SGR"
+
+          aws ec2 authorize-security-group-ingress --group-id $SG_ID --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+
+          echo -e "$AWS_PRIVATE_KEY" | sed 's/^"//' | sed 's/"$//' > private_key.pem && chmod 600 private_key.pem
+
+          echo "Private key saved"
+
+          ssh -o StrictHostKeyChecking=no -i private_key.pem $PUBLIC_USERNAME@$PUBLIC_HOSTNAME "sudo rm -r -f schema/"
+
+          scp -o StrictHostKeyChecking=no -i private_key.pem -r ./CubeJS/schema/ $PUBLIC_USERNAME@$PUBLIC_HOSTNAME:~/
+
+          echo "Folder copied to public ec2"
+
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME ssh -i ${{env.PRIVATE_KEY_NAME}} $PRIVATE_USERNAME@$PRIVATE_HOSTNAME "sudo rm -r -f schema/"
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME ssh -i ${{env.PRIVATE_KEY_NAME}} $PRIVATE_USERNAME@$PRIVATE_HOSTNAME "sudo rm -r -f efs-mount-point/schema/"
+          
+          echo "Folders removed in private ec2"
+
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME scp -i ${{env.PRIVATE_KEY_NAME}} -r schema/ $PRIVATE_USERNAME@$PRIVATE_HOSTNAME:~/
+          ssh -o StrictHostKeyChecking=no -i private_key.pem -tt $PUBLIC_USERNAME@$PUBLIC_HOSTNAME ssh -i ${{env.PRIVATE_KEY_NAME}} $PRIVATE_USERNAME@$PRIVATE_HOSTNAME sudo cp -r schema/ efs-mount-point/
+          
+          echo "Folder formatted in private ec2"
+
+          echo "Sync files successed"
+
+          aws eks --region $AWS_REGION update-kubeconfig --name ${{env.CLUSTER_NAME}}
+
+          kubectl delete --all pods --namespace=${{env.CLUSTER_NAMESPACE}} --context=arn:aws:eks:${{env.AWS_REGION}}:${{env.AWS_ACCOUNT}}:cluster/${{env.CLUSTER_NAME}}
+
+      - name: Remove Github Actions IP from security group
+        run: |
+          aws ec2 revoke-security-group-ingress --group-id $SG_ID --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32

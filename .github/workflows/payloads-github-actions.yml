@@ -1,0 +1,67 @@
+name: Push Cube payloads to S3
+
+on:
+  push:
+    paths:
+      - 'Reports/CubePayloads/**'
+    branches:
+      - master
+      - develop
+      - staging
+
+jobs:
+  environment-validation:
+    name: 'environment-validation'
+    runs-on: ubuntu-latest
+    env:
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_DEFAULT_OUTPUT: json
+    outputs:
+      output1: ${{env.AWS_ACCESS_KEY_ID}}
+      output2: ${{env.AWS_SECRET_ACCESS_KEY}}
+      output3: us-east-1
+      output4: ${{env.ENV}}
+    steps:
+      - name: Set AWS credentials
+        run: |
+          if ([[ $GITHUB_REF == 'refs/heads/develop' ]]); then
+            echo "AWS_ACCESS_KEY_ID=DEV_AWS_ACCESS_KEY_ID" >> "$GITHUB_ENV"
+            echo "AWS_SECRET_ACCESS_KEY=DEV_AWS_SECRET_ACCESS_KEY" >> "$GITHUB_ENV"
+            echo "ENV=dev" >> "$GITHUB_ENV"
+          elif [[ $GITHUB_REF == 'refs/heads/staging' ]] ; then
+            echo "AWS_ACCESS_KEY_ID=STG_AWS_ACCESS_KEY_ID" >> "$GITHUB_ENV"
+            echo "AWS_SECRET_ACCESS_KEY=STG_AWS_SECRET_ACCESS_KEY" >> "$GITHUB_ENV"
+            echo "ENV=stg" >> "$GITHUB_ENV"
+          elif [[ $GITHUB_REF == 'refs/heads/master' ]] ; then
+            echo "AWS_ACCESS_KEY_ID=PRD_AWS_ACCESS_KEY_ID" >> "$GITHUB_ENV"
+            echo "AWS_SECRET_ACCESS_KEY=PRD_AWS_SECRET_ACCESS_KEY" >> "$GITHUB_ENV"
+            echo "ENV=prd" >> "$GITHUB_ENV"
+          else
+            exit 1
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+  push-cube-reports:
+    needs: environment-validation
+    runs-on: ubuntu-latest
+    if: (github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/staging' || github.ref == 'refs/heads/master')
+    env:
+      AWS_REGION: ${{needs.environment-validation.outputs.output3}}
+      AWS_ACCESS_KEY_ID: ${{needs.environment-validation.outputs.output1}}
+      AWS_SECRET_ACCESS_KEY: ${{needs.environment-validation.outputs.output2}}
+      ENV: ${{needs.environment-validation.outputs.output4}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get AWS credentials
+        run: |
+          echo "AWS_ACCESS_KEY_ID=${{ secrets[env.AWS_ACCESS_KEY_ID] }}" >> "$GITHUB_ENV"
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets[env.AWS_SECRET_ACCESS_KEY] }}" >> "$GITHUB_ENV"
+
+      - name: Sync payloads in S3 bucket
+        run: |
+          BUCKET_NAME=$(aws secretsmanager get-secret-value --secret-id  company/general/$ENV/cube-monitoring/parameters --query SecretString --output text | jq -r '.BUCKET_NAME')
+          aws s3 sync Reports/CubePayloads/ s3://$BUCKET_NAME/$ENV/ --delete

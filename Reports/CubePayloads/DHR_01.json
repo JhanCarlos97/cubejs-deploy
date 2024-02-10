@@ -1,0 +1,34 @@
+{
+    "dimensions": [
+      "bus_another_provider_GlobalIntentResponse.intentResponseId",
+      "bus_another_provider_GlobalIntentResponse.intentNameNoSuggest",
+      "bus_another_provider_GlobalIntentResponse.mainTopic",
+      "bus_another_provider_GlobalIntentResponse.conversationDetail",
+      "bus_another_provider_GlobalIntentResponse.nextLevelDetail",
+      "bus_another_provider_GlobalIntentResponse.response",
+      "bus_another_provider_GlobalIntentResponse.defaultResponse",
+      "bus_another_provider_GlobalIntentResponse.communitiesUsingThisResponse"
+    ],
+    "order": [
+      [
+        "bus_another_provider_GlobalIntentResponse.mainTopic",
+        "asc"
+      ],
+      [
+        "bus_another_provider_GlobalIntentResponse.conversationDetail",
+        "asc"
+      ],
+      [
+        "bus_another_provider_GlobalIntentResponse.nextLevelDetail",
+        "asc"
+      ],
+      [
+        "bus_another_provider_GlobalIntentResponse.communitiesUsingThisResponse",
+        "desc"
+      ],
+      [
+        "bus_another_provider_GlobalIntentResponse.intentResponseId",
+        "asc"
+      ]
+    ]
+  }

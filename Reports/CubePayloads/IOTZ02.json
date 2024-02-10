@@ -1,0 +1,19 @@
+{
+    "measures": [
+      "bus_iot_AccessEvents.quantity"
+    ],
+    "order": {
+    },
+    "segments": [
+      "bus_iot_AccessEvents.mainSegment"
+    ],
+    "filters": [
+      {
+        "member": "raw_iot_location.apartmentCommunityId",
+        "operator": "equals",
+        "values": [
+          "84a12539-f576-4a14-ba26-58d57265a3e6"
+        ]
+      }
+    ]
+  }
